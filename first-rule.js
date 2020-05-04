@@ -22,7 +22,10 @@ const checkLiveCellsTruth = (arr1, arr2, arr3, truth, index, initialState) => {
     const mainIndex = arr1[0]
 
     getLiveCellsTruth(arr2, truth, mainIndex)
-    getLiveCellsTruth(arr3, truth, mainIndex)
+
+    if (index === 1) {
+      getLiveCellsTruth(arr3, truth, mainIndex)
+    }
 
     if (truth.length < 2) {
       initialState.splice(index, 1, ['', '', '']);

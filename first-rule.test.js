@@ -2,6 +2,7 @@ const rule = require('./first-rule');
 const { populate, version1 } = require('./helpers')
 const testOneData = require('./helpers/testOne')
 const testTwoData = require('./helpers/testTwo')
+const { initialState, firstRule } = require('./states')
 
 const testOne1Data = {
   initialState: populate(version1, version1, version1),
@@ -25,4 +26,8 @@ test('Two elements only data', () => {
       expect(rule(testTwoData()[data][key].initialState)).toEqual(testTwoData()[data][key].result);
     })
   })
+});
+
+test('Main first rule test', () => {
+  expect(rule(initialState)).toEqual(firstRule);
 });
