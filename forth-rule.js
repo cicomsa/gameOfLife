@@ -1,0 +1,1 @@
+// Each dead cell with three neighbors becomes populated.

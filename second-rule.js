@@ -1,0 +1,1 @@
+// Each live cell with two or three neighbors survives
