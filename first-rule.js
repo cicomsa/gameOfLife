@@ -28,29 +28,25 @@ const checkLiveCellsTruth = (arr1, arr2, arr3, truth, index, initialState) => {
     }
 
     if (truth.length < 2) {
-      initialState.splice(index, 1, ['', '', '']);
+      initialState.splice(index, 1, ['', '', ''])
     }
   }
 }
 
 const firstRule = initialState => {
   let cloneInitialState = [...initialState];
+  const resultsObject = {}
 
-  const arr1 = initialState[0]
-  const arr2 = initialState[1]
-  const arr3 = initialState[2]
+  initialState.map((arr, i) => {
+    resultsObject[`arr${i + 1}`] = liveCells(arr)
+    resultsObject[`truth${i + 1}`] = []
+  })
 
-  let truth1 = []
-  let truth2 = []
-  let truth3 = []
+  const { arr1, arr2, arr3, truth1, truth2, truth3 } = resultsObject
 
-  const a1 = liveCells(arr1)
-  const a2 = liveCells(arr2)
-  const a3 = liveCells(arr3)
-
-  checkLiveCellsTruth(a1, a2, a3, truth1, 0, cloneInitialState)
-  checkLiveCellsTruth(a2, a1, a3, truth2, 1, cloneInitialState)
-  checkLiveCellsTruth(a3, a1, a2, truth3, 2, cloneInitialState)
+  checkLiveCellsTruth(arr1, arr2, arr3, truth1, 0, cloneInitialState)
+  checkLiveCellsTruth(arr2, arr1, arr3, truth2, 1, cloneInitialState)
+  checkLiveCellsTruth(arr3, arr1, arr2, truth3, 2, cloneInitialState)
 
   return cloneInitialState
 }
