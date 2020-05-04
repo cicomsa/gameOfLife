@@ -22,10 +22,8 @@ test('One element only data', () => {
 
 // test two elements only
 test('Two elements only data', () => {
-  Object.keys(testTwoElData()).map(data => {
-    Object.keys(testTwoElData()[data]).map(key => {
-      expect(rule(testTwoElData()[data][key].initialState)).toEqual(testTwoElData()[data][key].result);
-    })
+  Object.keys(testTwoElData()).map(key => {
+    expect(rule(testTwoElData()[key].initialState)).toEqual(testTwoElData()[key].result)
   })
 });
 
