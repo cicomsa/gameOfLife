@@ -1,33 +1,21 @@
 const { populate, version1, version2, version3, version4 } = require('./index')
 
+const createObject = (resultsObject, letter, i, alteredVersion) => {
+  resultsObject[`${letter}${i}`] = {}
+  resultsObject[`${letter}${i}`].initialState = populate(alteredVersion, version2, version1)
+  resultsObject[`${letter}${i}`].result = populate(version1, version1, version1)
+}
+
 // two elements
 const testTwoSplit = (i, alteredVersion) => {
   const resultsObject = {}
 
-  resultsObject[`A${i}`] = {}
-  resultsObject[`A${i}`].initialState = populate(alteredVersion, version2, version1)
-  resultsObject[`A${i}`].result = populate(version1, version1, version1)
-
-  resultsObject[`B${i}`] = {}
-  resultsObject[`B${i}`].initialState = populate(alteredVersion, version3, version1)
-  resultsObject[`B${i}`].result = populate(version1, version1, version1)
-
-  resultsObject[`C${i}`] = {}
-  resultsObject[`C${i}`].initialState = populate(alteredVersion, version4, version1)
-  resultsObject[`C${i}`].result = populate(version1, version1, version1)
-
-  resultsObject[`D${i}`] = {}
-  resultsObject[`D${i}`].initialState = populate(alteredVersion, version1, version2)
-  resultsObject[`D${i}`].result = populate(version1, version1, version1)
-
-  resultsObject[`E${i}`] = {}
-  resultsObject[`E${i}`].initialState = populate(alteredVersion, version1, version3)
-  resultsObject[`E${i}`].result = populate(version1, version1, version1)
-
-  resultsObject[`F${i}`] = {}
-  resultsObject[`F${i}`].initialState = populate(alteredVersion, version1, version4)
-  resultsObject[`F${i}`].result = populate(version1, version1, version1)
-
+  createObject(resultsObject, 'A', i, alteredVersion)
+  createObject(resultsObject, 'B', i, alteredVersion)
+  createObject(resultsObject, 'C', i, alteredVersion)
+  createObject(resultsObject, 'D', i, alteredVersion)
+  createObject(resultsObject, 'E', i, alteredVersion)
+  createObject(resultsObject, 'F', i, alteredVersion)
 
   resultsObject[`G${i}`] = {}
   resultsObject[`G${i}`].initialState = populate(version1, version2, version2)
@@ -40,7 +28,6 @@ const testTwoSplit = (i, alteredVersion) => {
   resultsObject[`I${i}`] = {}
   resultsObject[`I${i}`].initialState = populate(version1, version2, version4)
   resultsObject[`I${i}`].result = populate(version1, version1, version1)
-
 
   return resultsObject
 }
