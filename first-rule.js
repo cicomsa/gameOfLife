@@ -1,5 +1,4 @@
 // Each live cell with one or no neighbors dies, as if by solitude.
-const { firstGeneration } = require('./states.js')
 
 const checkArray = (arr1Length, arr2Length, i) => {
   if (arr1Length < 2 && arr2Length <= 1) {
@@ -16,14 +15,17 @@ const firstRule = initialState => {
 
     if (i === 2) {
       // console.log(
+      //   arrLength(initialState[1]) < 2
+      //   && (arrLength(initialState[0]) === 0 || arrLength(initialState[0]) < 2)
+      //   && (arrLength(initialState[2]) === 0 || arrLength(initialState[2]) < 2),
       //   arrLength(initialState[1]) < 2, initialState[1],
-      //   arrLength(initialState[0]) === 0, initialState[0],
-      //   arrLength(initialState[2]) === 0, initialState[2]
+      //   arrLength(initialState[0]) === 0 || arrLength(initialState[0]) < 2, initialState[0],
+      //   arrLength(initialState[2]) === 0 || arrLength(initialState[2]) < 2, initialState[2]
       // )
       if (
         arrLength(initialState[1]) < 2
-        && arrLength(initialState[0]) === 0
-        && arrLength(initialState[2]) === 0
+        && (arrLength(initialState[0]) === 0 || arrLength(initialState[0]) < 2)
+        && (arrLength(initialState[2]) === 0 || arrLength(initialState[2]) < 2)
       ) {
         cloneInitialState.splice(1, 1, ['', '', '']);
       }
