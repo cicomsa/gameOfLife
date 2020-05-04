@@ -1,21 +1,21 @@
 const { populate, version1, version2, version3, version4 } = require('./index')
 
-const createObject = (resultsObject, letter, i, alteredVersion) => {
+const createDataObject = (resultsObject, letter, i, alteredVersion) => {
   resultsObject[`${letter}${i}`] = {}
   resultsObject[`${letter}${i}`].initialState = populate(alteredVersion, version2, version1)
   resultsObject[`${letter}${i}`].result = populate(version1, version1, version1)
 }
 
 // two elements
-const testTwoSplit = (i, alteredVersion) => {
+const getData = (i, alteredVersion) => {
   const resultsObject = {}
 
-  createObject(resultsObject, 'A', i, alteredVersion)
-  createObject(resultsObject, 'B', i, alteredVersion)
-  createObject(resultsObject, 'C', i, alteredVersion)
-  createObject(resultsObject, 'D', i, alteredVersion)
-  createObject(resultsObject, 'E', i, alteredVersion)
-  createObject(resultsObject, 'F', i, alteredVersion)
+  createDataObject(resultsObject, 'A', i, alteredVersion)
+  createDataObject(resultsObject, 'B', i, alteredVersion)
+  createDataObject(resultsObject, 'C', i, alteredVersion)
+  createDataObject(resultsObject, 'D', i, alteredVersion)
+  createDataObject(resultsObject, 'E', i, alteredVersion)
+  createDataObject(resultsObject, 'F', i, alteredVersion)
 
   resultsObject[`G${i}`] = {}
   resultsObject[`G${i}`].initialState = populate(version1, version2, version2)
@@ -32,19 +32,19 @@ const testTwoSplit = (i, alteredVersion) => {
   return resultsObject
 }
 
-const testTwo1Data = testTwoSplit('a', version2)
-const testTwo2Data = testTwoSplit('b', version3)
-const testTwo3Data = testTwoSplit('c', version4)
+const data1 = getData('a', version2)
+const data2 = getData('b', version3)
+const data3 = getData('c', version4)
 
-const testTwoData = () => {
-  const resultsObject = {}
+const testData = () => {
+  const data = {}
 
   return {
-    ...resultsObject,
-    testTwo1Data,
-    testTwo2Data,
-    testTwo3Data
+    ...data,
+    data1,
+    data2,
+    data3
   }
 }
 
-module.exports = testTwoData 
+module.exports = testData 

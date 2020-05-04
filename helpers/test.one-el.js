@@ -1,7 +1,7 @@
 const { populate, version1, version2, version3, version4 } = require('./index')
 
 //one element
-const testOneSplit = (alteredVersion) => {
+const getData = (alteredVersion) => {
   const resultsObject = {}
 
   resultsObject.initialStateA = populate(alteredVersion, version1, version1)
@@ -16,19 +16,19 @@ const testOneSplit = (alteredVersion) => {
   return resultsObject
 }
 
-const testOne2Data = testOneSplit(version2)
-const testOne3Data = testOneSplit(version3)
-const testOne4Data = testOneSplit(version4)
+const data1 = getData(version2)
+const data2 = getData(version3)
+const data3 = getData(version4)
 
-const testOneData = () => {
-  const resultsObject = {}
+const testData = () => {
+  const data = {}
 
   return {
-    ...resultsObject,
-    testOne2Data,
-    testOne3Data,
-    testOne4Data
+    ...data,
+    data1,
+    data2,
+    data3
   }
 }
 
-module.exports = testOneData 
+module.exports = testData 
