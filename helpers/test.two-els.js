@@ -1,5 +1,7 @@
 const { populate, version1, version2, version3, version4 } = require('./index')
 
+// two elements
+
 const createDataObject1 = (resultsObject, index, alteredVersion) => {
   resultsObject[index] = {}
   resultsObject[index].initialState = populate(version2, alteredVersion, version1)
@@ -18,7 +20,6 @@ const createDataObject3 = (resultsObject, index, alteredVersion) => {
   resultsObject[index].result = populate(version1, version1, version1)
 }
 
-// two elements
 const testData = () => {
   const resultsObject = {}
 

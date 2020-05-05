@@ -1,6 +1,8 @@
 const { populate, version1, version2, version3, version4 } = require('./index')
 
+// three elements
 
+// with version 2 at the end
 const createDataObject1 = resultsObject => {
   resultsObject.a1 = {}
   resultsObject.a1.initialState = populate(version2, version2, version2)
@@ -41,6 +43,7 @@ const createDataObject1 = resultsObject => {
   resultsObject.a9.result = populate(version1, version1, version1)
 }
 
+// with version 3 at the end
 const createDataObject2 = resultsObject => {
   resultsObject.b1 = {}
   resultsObject.b1.initialState = populate(version2, version2, version3)
@@ -81,6 +84,7 @@ const createDataObject2 = resultsObject => {
   resultsObject.b9.result = populate(version1, version4, version1)
 }
 
+// with version 4 at the end
 const createDataObject3 = resultsObject => {
   resultsObject.c1 = {}
   resultsObject.c1.initialState = populate(version2, version2, version4)
@@ -121,7 +125,6 @@ const createDataObject3 = resultsObject => {
   resultsObject.c9.result = populate(version1, version4, version1)
 }
 
-// three elements
 const testData = () => {
   const resultsObject = {}
 

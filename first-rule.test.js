@@ -1,4 +1,4 @@
-const rule = require('./first-rule');
+const rule = require('./first-rule')
 const { populate, version1 } = require('./helpers')
 const testOneElData = require('./helpers/test.one-el')
 const testTwoElsData = require('./helpers/test.two-els')
@@ -19,22 +19,24 @@ test('One element only data', () => {
     expect(rule(testOneElData()[key].initialStateB)).toEqual(testOneElData()[key].resultB);
     expect(rule(testOneElData()[key].initialStateC)).toEqual(testOneElData()[key].resultC);
   })
-});
+})
 
 // test two elements only
 test('Two elements only data', () => {
   Object.keys(testTwoElsData()).map(key => {
-    expect(rule(testTwoElsData()[key].initialState)).toEqual(testTwoElsData()[key].result)
+    expect(rule(testTwoElsData()[key].initialState))
+      .toEqual(testTwoElsData()[key].result)
   })
-});
+})
 
 // test three elements
 test('Three elements data', () => {
   Object.keys(testThreeElsData()).map(key => {
-    expect(rule(testThreeElsData()[key].initialState)).toEqual(testThreeElsData()[key].result)
+    expect(rule(testThreeElsData()[key].initialState))
+      .toEqual(testThreeElsData()[key].result)
   })
-});
+})
 
 test('Main first rule test', () => {
   expect(rule(initialState)).toEqual(firstRule);
-});
+})
