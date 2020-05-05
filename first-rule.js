@@ -13,7 +13,7 @@ const liveCells = arr => {
 const getLiveCellsTruth = (arr, truth, mainIndex) => {
   if (arr.length === 1) {
     const index = arr[0]
-    truth.push(index === mainIndex || index === mainIndex - 1 || index === mainIndex + 2)
+    truth.push(index === mainIndex || index === mainIndex - 1 || index === mainIndex + 1)
   }
 }
 
@@ -27,7 +27,7 @@ const checkLiveCellsTruth = (arr1, arr2, arr3, truth, index, initialState) => {
       getLiveCellsTruth(arr3, truth, mainIndex)
     }
 
-    if (truth.length < 2) {
+    if (truth.length < 2 || (truth.length === 2 && truth.filter(t => t === false).length > 0)) {
       initialState.splice(index, 1, ['', '', ''])
     }
   }
