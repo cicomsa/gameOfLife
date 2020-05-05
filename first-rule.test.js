@@ -35,6 +35,6 @@ test('Three elements data', () => {
   })
 });
 
-// test('Main first rule test', () => {
-//   expect(rule(initialState)).toEqual(firstRule);
-// });
+test('Main first rule test', () => {
+  expect(rule(initialState)).toEqual(firstRule);
+});
