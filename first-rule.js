@@ -11,6 +11,7 @@ const liveCells = array => {
 }
 
 const getLiveCellsTruth = (arr, truth, mainIndex) => {
+
   if (arr.length === 1) {
     const index = arr[0]
     truth.push(
@@ -25,6 +26,26 @@ const checkLiveCellsTruth = (arr1, arr2, arr3, truth, index, initialState) => {
   if (arr1.length === 1) {
     const mainIndex = arr1[0]
 
+    getLiveCellsTruth(arr2, truth, mainIndex)
+
+    if (index === 1) {
+      getLiveCellsTruth(arr3, truth, mainIndex)
+    }
+
+    if (
+      truth.length < 2 || (
+        truth.length === 2 &&
+        truth.filter(t => t === false).length > 0
+      )
+    ) {
+      initialState.splice(index, 1, ['', '', ''])
+    }
+  }
+
+  // to combine
+  if (arr1.length === 2) {
+    const mainIndex = arr1[1]
+    console.log(arr1, arr2)
     getLiveCellsTruth(arr2, truth, mainIndex)
 
     if (index === 1) {

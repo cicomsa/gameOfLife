@@ -1,4 +1,4 @@
-const { populate, version1, version2, version3, version4 } = require('./index')
+const { populate, version1, version2, version3, version4, version5, version6 } = require('./index')
 
 // two elements
 
@@ -20,9 +20,24 @@ const createDataObject3 = (resultsObject, index, alteredVersion) => {
   resultsObject[index].result = populate(version1, version1, version1)
 }
 
+const createDataObject4 = (resultsObject, index, alteredVersion) => {
+  resultsObject[index] = {}
+  resultsObject[index].initialState = populate(alteredVersion, version1, version1)
+  resultsObject[index].result = populate(version1, version1, version1)
+
+  resultsObject[index] = {}
+  resultsObject[index].initialState = populate(version1, alteredVersion, version1)
+  resultsObject[index].result = populate(version1, version1, version1)
+
+  resultsObject[index] = {}
+  resultsObject[index].initialState = populate(version1, version1, alteredVersion)
+  resultsObject[index].result = populate(version1, version1, version1)
+}
+
 const testData = () => {
   const resultsObject = {}
 
+  // singles
   createDataObject1(resultsObject, 'a', version2)
   createDataObject1(resultsObject, 'b', version3)
   createDataObject1(resultsObject, 'c', version4)
@@ -35,7 +50,11 @@ const testData = () => {
   createDataObject3(resultsObject, 'h', version3)
   createDataObject3(resultsObject, 'i', version4)
 
+  // doubles
+  createDataObject4(resultsObject, 'j', version5)
+  createDataObject4(resultsObject, 'k', version6)
+
   return resultsObject
 }
 
-module.exports = testData 
+module.exports = testData
