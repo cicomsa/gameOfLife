@@ -1,17 +1,11 @@
 const { populate, version1, version2, version3, version4 } = require('./index')
+const { populateData1 } = require('./populate-data')
 
-// one element
+const getData = alteredVersion => {
+  const resultsObject = populateData1(alteredVersion)
 
-const getData = (alteredVersion) => {
-  const resultsObject = {}
-
-  resultsObject.initialStateA = populate(alteredVersion, version1, version1)
   resultsObject.resultA = populate(version1, version1, version1)
-
-  resultsObject.initialStateB = populate(version1, alteredVersion, version1)
   resultsObject.resultB = populate(version1, version1, version1)
-
-  resultsObject.initialStateC = populate(version1, version1, alteredVersion)
   resultsObject.resultC = populate(version1, version1, version1)
 
   return resultsObject
