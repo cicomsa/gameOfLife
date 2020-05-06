@@ -1,4 +1,4 @@
-const { populate, version1, version2, version3, version4 } = require('./index')
+const { populate, version1, version2, version3, version4, version5, version6 } = require('./index')
 
 // three elements
 
@@ -125,12 +125,139 @@ const createDataObject3 = resultsObject => {
   resultsObject.c9.result = populate(version1, version4, version1)
 }
 
+const createDataObject4 = resultsObject => {
+  resultsObject.d1 = {}
+  resultsObject.d1.initialState = populate(version5, version2, version1)
+  resultsObject.d1.result = populate(version5, version2, version1)
+
+  resultsObject.d2 = {}
+  resultsObject.d2.initialState = populate(version5, version4, version1)
+  resultsObject.d2.result = populate(version3, version1, version1)
+
+
+  resultsObject.d3 = {}
+  resultsObject.d3.initialState = populate(version2, version5, version1)
+  resultsObject.d3.result = populate(version2, version5, version1)
+
+  resultsObject.d4 = {}
+  resultsObject.d4.initialState = populate(version4, version5, version1)
+  resultsObject.d4.result = populate(version1, version3, version1)
+
+
+  // resultsObject.d5 = {}
+  // resultsObject.d5.initialState = populate(version1, version5, version2)
+  // resultsObject.d5.result = populate(version1, version5, version2)
+
+  // resultsObject.d6 = {}
+  // resultsObject.d6.initialState = populate(version1, version5, version4)
+  // resultsObject.d6.result = populate(version1, version3, version1)
+
+
+  // resultsObject.d7 = {}
+  // resultsObject.d7.initialState = populate(version1, version2, version5)
+  // resultsObject.d7.result = populate(version1, version2, version5)
+
+  // resultsObject.d8 = {}
+  // resultsObject.d8.initialState = populate(version1, version4, version5)
+  // resultsObject.d8.result = populate(version1, version1, version3)
+}
+
+const createDataObject5 = resultsObject => {
+  resultsObject.e1 = {}
+  resultsObject.e1.initialState = populate(version6, version2, version1)
+  resultsObject.e1.result = populate(version3, version1, version1)
+
+  resultsObject.e2 = {}
+  resultsObject.e2.initialState = populate(version6, version4, version1)
+  resultsObject.e2.result = populate(version6, version4, version1)
+
+
+  resultsObject.e3 = {}
+  resultsObject.e3.initialState = populate(version2, version6, version1)
+  resultsObject.e3.result = populate(version1, version3, version1)
+
+  resultsObject.e4 = {}
+  resultsObject.e4.initialState = populate(version4, version6, version1)
+  resultsObject.e4.result = populate(version4, version6, version1)
+
+
+  resultsObject.e5 = {}
+  resultsObject.e5.initialState = populate(version1, version6, version2)
+  resultsObject.e5.result = populate(version1, version3, version1)
+
+  resultsObject.e6 = {}
+  resultsObject.e6.initialState = populate(version1, version6, version4)
+  resultsObject.e6.result = populate(version1, version6, version4)
+
+
+  resultsObject.e7 = {}
+  resultsObject.e7.initialState = populate(version1, version2, version6)
+  resultsObject.e7.result = populate(version1, version1, version3)
+
+  resultsObject.e8 = {}
+  resultsObject.e8.initialState = populate(version1, version4, version6)
+  resultsObject.e8.result = populate(version1, version4, version6)
+}
+
+const createDataObject6 = (resultsObject, index, alternateVersion) => {
+  resultsObject[`${index}1`] = {}
+  resultsObject[`${index}1`].initialState = populate(alternateVersion, version1, version2)
+  resultsObject[`${index}1`].result = populate(version1, version1, version1)
+
+  resultsObject[`${index}2`] = {}
+  resultsObject[`${index}2`].initialState = populate(alternateVersion, version1, version3)
+  resultsObject[`${index}2`].result = populate(version1, version1, version1)
+
+  resultsObject[`${index}3`] = {}
+  resultsObject[`${index}3`].initialState = populate(alternateVersion, version1, version4)
+  resultsObject[`${index}3`].result = populate(version1, version1, version1)
+
+  resultsObject[`${index}4`] = {}
+  resultsObject[`${index}4`].initialState = populate(version2, version1, alternateVersion)
+  resultsObject[`${index}4`].result = populate(version1, version1, version1)
+
+  resultsObject[`${index}5`] = {}
+  resultsObject[`${index}5`].initialState = populate(version3, version1, alternateVersion)
+  resultsObject[`${index}5`].result = populate(version1, version1, version1)
+
+  resultsObject[`${index}6`] = {}
+  resultsObject[`${index}6`].initialState = populate(version4, version1, alternateVersion)
+  resultsObject[`${index}6`].result = populate(version1, version1, version1)
+}
+
+const createDataObject7 = (resultsObject, index, alternateVersion) => {
+  resultsObject[`${index}1`] = {}
+  resultsObject[`${index}1`].initialState = populate(alternateVersion, version3, version1)
+  resultsObject[`${index}1`].result = populate(alternateVersion, version3, version1)
+
+  resultsObject[`${index}2`] = {}
+  resultsObject[`${index}2`].initialState = populate(version3, alternateVersion, version1)
+  resultsObject[`${index}2`].result = populate(version3, alternateVersion, version1)
+
+  resultsObject[`${index}3`] = {}
+  resultsObject[`${index}3`].initialState = populate(version1, alternateVersion, version3)
+  resultsObject[`${index}3`].result = populate(version1, alternateVersion, version3)
+
+  resultsObject[`${index}4`] = {}
+  resultsObject[`${index}4`].initialState = populate(version1, version3, alternateVersion)
+  resultsObject[`${index}4`].result = populate(version1, version3, alternateVersion)
+}
+
 const testData = () => {
   const resultsObject = {}
 
-  createDataObject1(resultsObject)
-  createDataObject2(resultsObject)
-  createDataObject3(resultsObject)
+  // singles
+  // createDataObject1(resultsObject)
+  // createDataObject2(resultsObject)
+  // createDataObject3(resultsObject)
+
+  // doubles
+  createDataObject4(resultsObject)
+  // createDataObject4(resultsObject)
+  // createDataObject6(resultsObject, 'f', version5)
+  // createDataObject6(resultsObject, 'g', version6)
+  // createDataObject7(resultsObject, 'h', version5)
+  // createDataObject7(resultsObject, 'i', version6)
 
   return resultsObject
 }
