@@ -1,5 +1,6 @@
 // Each live cell with one or no neighbors dies, as if by solitude.
 const replaceWith = ['', '', '']
+const replaceWith1 = [...replaceWith]
 
 const liveCells = array => {
   const result = array.reduce((result, el, i) => {
@@ -164,8 +165,14 @@ const firstRule = initialState => {
         newState.splice(0, 1, replaceWith)
         break
       case truth1.length === 1:
-        newState.splice(0, 1, replaceWith)
+        // newState.splice(0, 1, replaceWith)
+        if (arr1[0] === arr1[1] - 1) {
+          replaceWith1[1] = 'o'
+        }
+
+        newState.splice(0, 1, replaceWith1)
         break
+
       default:
         initialState
     }
@@ -242,7 +249,12 @@ const firstRule = initialState => {
         newState.splice(1, 1, replaceWith)
         break
       case truth2.length === 1:
-        newState.splice(1, 1, replaceWith)
+        // newState.splice(1, 1, replaceWith)
+        if (arr2[0] === arr2[1] - 1) {
+          replaceWith1[1] = 'o'
+        }
+
+        newState.splice(1, 1, replaceWith1)
         break
       default:
         initialState
@@ -294,7 +306,12 @@ const firstRule = initialState => {
         newState.splice(2, 1, replaceWith)
         break
       case truth3.length === 1:
-        newState.splice(2, 1, replaceWith)
+        // newState.splice(2, 1, replaceWith)
+        if (arr3[0] === arr3[1] - 1) {
+          replaceWith1[1] = 'o'
+        }
+
+        newState.splice(2, 1, replaceWith1)
         break
       default:
         initialState
