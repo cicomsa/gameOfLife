@@ -126,22 +126,22 @@ const createDataObject3 = resultsObject => {
 }
 
 const createDataObject4 = resultsObject => {
-  resultsObject.d1 = {}
-  resultsObject.d1.initialState = populate(version5, version2, version1)
-  resultsObject.d1.result = populate(version5, version2, version1)
+  // resultsObject.d1 = {}
+  // resultsObject.d1.initialState = populate(version5, version2, version1)
+  // resultsObject.d1.result = populate(version5, version2, version1)
 
   resultsObject.d2 = {}
   resultsObject.d2.initialState = populate(version5, version4, version1)
   resultsObject.d2.result = populate(version3, version1, version1)
 
 
-  resultsObject.d3 = {}
-  resultsObject.d3.initialState = populate(version2, version5, version1)
-  resultsObject.d3.result = populate(version2, version5, version1)
+  // resultsObject.d3 = {}
+  // resultsObject.d3.initialState = populate(version2, version5, version1)
+  // resultsObject.d3.result = populate(version2, version5, version1)
 
-  resultsObject.d4 = {}
-  resultsObject.d4.initialState = populate(version4, version5, version1)
-  resultsObject.d4.result = populate(version1, version3, version1)
+  // resultsObject.d4 = {}
+  // resultsObject.d4.initialState = populate(version4, version5, version1)
+  // resultsObject.d4.result = populate(version1, version3, version1)
 
 
   // resultsObject.d5 = {}
@@ -247,12 +247,12 @@ const testData = () => {
   const resultsObject = {}
 
   // singles
-  // createDataObject1(resultsObject)
-  // createDataObject2(resultsObject)
-  // createDataObject3(resultsObject)
+  createDataObject1(resultsObject)
+  createDataObject2(resultsObject)
+  createDataObject3(resultsObject)
 
   // doubles
-  createDataObject4(resultsObject)
+  // createDataObject4(resultsObject)
   // createDataObject4(resultsObject)
   // createDataObject6(resultsObject, 'f', version5)
   // createDataObject6(resultsObject, 'g', version6)
