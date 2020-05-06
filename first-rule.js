@@ -40,10 +40,14 @@ const getLiveCellsTruth2 = (arr1, arr2, truth) => {
   }
 }
 
-const checkLengthOne = (arr1, arr2, truth, index, newState, initialState) => {
+const checkLengthOne = (arr1, arr2, arr3, truth, index, newState, initialState) => {
   if (arr1.length === 1) {
     if (arr2.length) {
       getLiveCellsTruth1(arr1, arr2, truth)
+    }
+
+    if (arr3.length) {
+      getLiveCellsTruth1(arr1, arr3, truth)
     }
 
     switch (true) {
@@ -61,11 +65,17 @@ const checkLengthOne = (arr1, arr2, truth, index, newState, initialState) => {
   }
 }
 
-const checkLengthTwo = (arr1, arr2, truth, index, newState, initialState) => {
+const checkLengthTwo = (arr1, arr2, arr3, truth, index, newState, initialState) => {
   if (arr1.length === 2) {
     if (arr2.length) {
       if (arr1[0] === arr1[1] - 1) {
         getLiveCellsTruth1(arr1, arr2, truth)
+      }
+    }
+
+    if (arr3.length) {
+      if (arr1[0] === arr1[1] - 1) {
+        getLiveCellsTruth1(arr1, arr3, truth)
       }
     }
 
@@ -88,9 +98,13 @@ const checkLengthTwo = (arr1, arr2, truth, index, newState, initialState) => {
   }
 }
 
-const checkLengthThree = (arr1, arr2, truth, index, newState, initialState) => {
+const checkLengthThree = (arr1, arr2, arr3, truth, index, newState, initialState) => {
   if (arr1.length === 3) {
     getLiveCellsTruth2(arr1, arr2, truth)
+
+    if (arr3.length) {
+      getLiveCellsTruth2(arr1, arr3, truth)
+    }
 
     switch (true) {
       case truth.length === 1:
@@ -100,16 +114,24 @@ const checkLengthThree = (arr1, arr2, truth, index, newState, initialState) => {
         }
         newState.splice(index, 1, replaceWith)
         break
+      case arr3.length && truth.length === 2:
+        replaceWith = [...array]
+        if (arr1[0] === arr1[1] - 1) {
+          replaceWith[1] = 'o'
+        }
+
+        newState.splice(index, 1, replaceWith)
+        break
       default:
         initialState
     }
   }
 }
 
-const checkLiveCellsTruth = (arr1, arr2, truth, index, newState, initialState) => {
-  checkLengthOne(arr1, arr2, truth, index, newState, initialState)
-  checkLengthTwo(arr1, arr2, truth, index, newState, initialState)
-  checkLengthThree(arr1, arr2, truth, index, newState, initialState)
+const checkLiveCellsTruth = (arr1, arr2, truth, index, newState, initialState, arr3 = []) => {
+  checkLengthOne(arr1, arr2, arr3, truth, index, newState, initialState)
+  checkLengthTwo(arr1, arr2, arr3, truth, index, newState, initialState)
+  checkLengthThree(arr1, arr2, arr3, truth, index, newState, initialState)
 }
 
 const firstRule = initialState => {
@@ -125,92 +147,13 @@ const firstRule = initialState => {
 
   checkLiveCellsTruth(arr1, arr2, truth1, 0, newState, initialState)
 
-  if (arr2.length === 1) {
-    if (arr1.length) {
-      getLiveCellsTruth1(arr2, arr1, truth2)
-    }
-
-    if (arr3.length) {
-      getLiveCellsTruth1(arr2, arr3, truth2)
-    }
-
-    switch (true) {
-      case truth2.length === 0:
-        replaceWith = [...array]
-        newState.splice(1, 1, replaceWith)
-        break
-      case truth2.length === 1:
-        replaceWith = [...array]
-        newState.splice(1, 1, replaceWith)
-        break
-      default:
-        initialState
-    }
-  }
-
-  if (arr2.length === 2) {
-    if (arr1.length) {
-      if (arr2[0] === arr2[1] - 1) {
-        getLiveCellsTruth1(arr2, arr1, truth2)
-      }
-    }
-
-    if (arr3.length) {
-      if (arr2[0] === arr2[1] - 1) {
-        getLiveCellsTruth1(arr2, arr3, truth2)
-      }
-    }
-
-    switch (true) {
-      case truth2.length === 0:
-        replaceWith = [...array]
-        newState.splice(1, 1, replaceWith)
-        break
-      case truth2.length === 1:
-        replaceWith = [...array]
-        if (arr2[0] === arr2[1] - 1) {
-          replaceWith[1] = 'o'
-        }
-
-        newState.splice(1, 1, replaceWith)
-        break
-      default:
-        initialState
-    }
-  }
-
-  if (arr2.length === 3) {
-    getLiveCellsTruth2(arr2, arr1, truth2)
-    getLiveCellsTruth2(arr2, arr3, truth2)
-
-    switch (true) {
-      case truth2.length === 1:
-        replaceWith = [...array]
-        if (arr2[0] === arr2[1] - 1) {
-          replaceWith[1] = 'o'
-        }
-
-        newState.splice(1, 1, replaceWith)
-        break
-
-      case truth2.length === 2:
-        replaceWith = [...array]
-        if (arr2[0] === arr2[1] - 1) {
-          replaceWith[1] = 'o'
-        }
-
-        newState.splice(1, 1, replaceWith)
-        break
-
-      default:
-        initialState
-    }
-  }
+  checkLiveCellsTruth(arr2, arr1, truth2, 1, newState, initialState, arr3)
 
   checkLiveCellsTruth(arr3, arr2, truth3, 2, newState, initialState)
 
   console.log(initialState)
   console.log(newState, truth1, truth2, truth3)
+
   return newState
 }
 
