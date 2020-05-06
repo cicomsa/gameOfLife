@@ -184,6 +184,35 @@ const firstRule = initialState => {
     }
   }
 
+  if (arr1.length === 3) {
+    if (!arr2.length) {
+      let els = []
+      arr1.map((el, i) => {
+        if (arr1[i + 1] === el + 1) {
+          els.push(el)
+        }
+      })
+
+      if (els[0] === els[1] - 1) {
+        truth1.push(true)
+      }
+    }
+
+    switch (true) {
+      case truth1.length === 1:
+        replaceWith = [...array]
+        if (arr1[0] === arr1[1] - 1) {
+          replaceWith[1] = 'o'
+        }
+
+        newState.splice(0, 1, replaceWith)
+        break
+
+      default:
+        initialState
+    }
+  }
+
   if (arr2.length === 1) {
     if (arr1.length) {
       arr2.forEach(mainIndex => {
@@ -274,6 +303,57 @@ const firstRule = initialState => {
     }
   }
 
+  if (arr2.length === 3) {
+    if (!arr1.length) {
+      let els = []
+      arr2.map((el, i) => {
+        if (arr2[i + 1] === el + 1) {
+          els.push(el)
+        }
+      })
+
+      if (els[0] === els[1] - 1) {
+        truth2.push(true)
+      }
+    }
+
+    if (!arr3.length) {
+      let els = []
+      arr2.map((el, i) => {
+        if (arr2[i + 1] === el + 1) {
+          els.push(el)
+        }
+      })
+
+      if (els[0] === els[1] - 1) {
+        truth2.push(true)
+      }
+    }
+
+    switch (true) {
+      case truth2.length === 1:
+        replaceWith = [...array]
+        if (arr2[0] === arr2[1] - 1) {
+          replaceWith[1] = 'o'
+        }
+
+        newState.splice(1, 1, replaceWith)
+        break
+
+      case truth2.length === 2:
+        replaceWith = [...array]
+        if (arr2[0] === arr2[1] - 1) {
+          replaceWith[1] = 'o'
+        }
+
+        newState.splice(1, 1, replaceWith)
+        break
+
+      default:
+        initialState
+    }
+  }
+
   if (arr3.length === 1) {
     if (arr2.length) {
       arr3.forEach(mainIndex => {
@@ -331,6 +411,35 @@ const firstRule = initialState => {
 
         newState.splice(2, 1, replaceWith)
         break
+      default:
+        initialState
+    }
+  }
+
+  if (arr3.length === 3) {
+    if (!arr2.length) {
+      let els = []
+      arr3.map((el, i) => {
+        if (arr3[i + 1] === el + 1) {
+          els.push(el)
+        }
+      })
+
+      if (els[0] === els[1] - 1) {
+        truth3.push(true)
+      }
+    }
+
+    switch (true) {
+      case truth3.length === 1:
+        replaceWith = [...array]
+        if (arr3[0] === arr3[1] - 1) {
+          replaceWith[1] = 'o'
+        }
+
+        newState.splice(2, 1, replaceWith)
+        break
+
       default:
         initialState
     }

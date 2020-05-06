@@ -339,7 +339,7 @@ const createDataObject9 = (resultsObject, index) => {
   resultsObject[`${index}2`].result = populate(version1, version3, version1)
 
   resultsObject[`${index}3`] = {}
-  resultsObject[`${index}3`].initialState = populate(version1, version8, version1)
+  resultsObject[`${index}3`].initialState = populate(version1, version1, version8)
   resultsObject[`${index}3`].result = populate(version1, version1, version3)
 }
 
@@ -351,7 +351,7 @@ const testData = () => {
   createDataObject2(resultsObject)
   createDataObject3(resultsObject)
 
-  // // doubles
+  // doubles
   createDataObject4(resultsObject)
   createDataObject5(resultsObject)
   createDataObject6(resultsObject, 'f', version5)
