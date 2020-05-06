@@ -253,11 +253,11 @@ const testData = () => {
 
   // doubles
   createDataObject4(resultsObject)
-  // createDataObject4(resultsObject)
-  // createDataObject6(resultsObject, 'f', version5)
-  // createDataObject6(resultsObject, 'g', version6)
-  // createDataObject7(resultsObject, 'h', version5)
-  // createDataObject7(resultsObject, 'i', version6)
+  createDataObject5(resultsObject)
+  createDataObject6(resultsObject, 'f', version5)
+  createDataObject6(resultsObject, 'g', version6)
+  createDataObject7(resultsObject, 'h', version5)
+  createDataObject7(resultsObject, 'i', version6)
 
   return resultsObject
 }
