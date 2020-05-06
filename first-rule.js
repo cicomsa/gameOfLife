@@ -34,6 +34,8 @@ const getLiveCellsTruth = (arr, truth, mainIndex) => {
 }
 
 const checkLiveCellsTruth = (arr1, arr2, arr3, truth, index, initialState) => {
+  const replaceWith = ['', '', '']
+
   if (arr1.length === 1) {
     const mainIndex = arr1[0]
 
@@ -49,13 +51,16 @@ const checkLiveCellsTruth = (arr1, arr2, arr3, truth, index, initialState) => {
         truth.filter(t => t === false).length > 0
       )
     ) {
-      initialState.splice(index, 1, ['', '', ''])
+      initialState.splice(index, 1, replaceWith)
     }
   }
-  // console.log(arr1)
+  console.log(arr1)
   // to combine
   if (arr1.length === 2) {
-    const checkedIndex = arr1[1]
+    if (arr1[0] === arr1[1] - 1) {
+      truth.push(true)
+    }
+
 
     arr1.map(el => {
       const mainIndex = el
@@ -67,6 +72,28 @@ const checkLiveCellsTruth = (arr1, arr2, arr3, truth, index, initialState) => {
       }
     })
 
+    switch (true) {
+      case truth.length === 0:
+        initialState.splice(index, 1, replaceWith)
+        break
+      case truth[0] === false:
+        initialState.splice(index, 1, replaceWith)
+        break
+      case truth.length === 2 && truth.filter(t => t === false).length > 0:
+        initialState.splice(index, 1, replaceWith)
+        break
+      case truth.length === 3 && truth.filter(t => t === true).length === 2:
+        if (arr1[0] === arr1[1] - 1) {
+          truth.push(true)
+          replaceWith[1] = 'o'
+        }
+
+        initialState.splice(index, 1, replaceWith)
+        break
+      default:
+        initialState
+
+    }
 
     if (
       (truth.length === 0 || truth[0] === false) || (
@@ -74,7 +101,12 @@ const checkLiveCellsTruth = (arr1, arr2, arr3, truth, index, initialState) => {
         truth.filter(t => t === false).length > 0
       )
     ) {
-      initialState.splice(index, 1, ['', '', ''])
+      initialState.splice(index, 1, replaceWith)
+    } else if (
+      truth.length === 3 &&
+      truth.filter(t => t === true).length > 1
+    ) {
+
     }
   }
 }
@@ -93,8 +125,8 @@ const firstRule = initialState => {
   checkLiveCellsTruth(arr1, arr2, arr3, truth1, 0, newState)
   checkLiveCellsTruth(arr2, arr1, arr3, truth2, 1, newState)
   checkLiveCellsTruth(arr3, arr1, arr2, truth3, 2, newState)
-  // console.log(initialState)
-  // console.log(newState, truth1, truth2, truth3)
+  console.log(initialState)
+  console.log(newState, truth1, truth2, truth3)
   return newState
 }
 
