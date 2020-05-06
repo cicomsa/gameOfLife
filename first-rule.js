@@ -12,28 +12,18 @@ const liveCells = array => {
   return result
 }
 
-// const getLiveCellsTruth = (arr, truth, mainIndex) => {
-//   // console.log(arr, mainIndex)
-//   if (arr.length === 1) {
-//     const index = arr[0]
-//     truth.push(
-//       index === mainIndex
-//       || index === mainIndex - 1
-//       || index === mainIndex + 1
-//     )
-//   }
-//   console.log(truth, 'qw')
-//   if (arr.length === 2) {
-//     arr.map(el => {
-//       const index = el
-//       truth.push(
-//         index === mainIndex
-//         || index === mainIndex - 1
-//         || index === mainIndex + 1
-//       )
-//     })
-//   }
-// }
+const getLiveCellsTruth = (arr1, arr2, truth) => {
+  arr1.forEach(mainIndex => {
+    arr2.map(index => {
+      if (index === mainIndex
+        || index === mainIndex - 1
+        || index === mainIndex + 1
+      ) {
+        truth.push(true)
+      }
+    })
+  })
+}
 
 // const checkLiveCellsTruth = (arr1, arr2, arr3, truth, index, initialState) => {
 
@@ -122,16 +112,7 @@ const firstRule = initialState => {
 
   if (arr1.length === 1) {
     if (arr2.length) {
-      arr1.forEach(mainIndex => {
-        arr2.map(index => {
-          if (index === mainIndex
-            || index === mainIndex - 1
-            || index === mainIndex + 1
-          ) {
-            truth1.push(true)
-          }
-        })
-      })
+      getLiveCellsTruth(arr1, arr2, truth1)
     }
 
     switch (true) {
@@ -152,16 +133,7 @@ const firstRule = initialState => {
   if (arr1.length === 2) {
     if (arr2.length) {
       if (arr1[0] === arr1[1] - 1) {
-        arr1.forEach(mainIndex => {
-          arr2.map(index => {
-            if (index === mainIndex
-              || index === mainIndex - 1
-              || index === mainIndex + 1
-            ) {
-              truth1.push(true)
-            }
-          })
-        })
+        getLiveCellsTruth(arr1, arr2, truth1)
       }
     }
 
@@ -215,29 +187,11 @@ const firstRule = initialState => {
 
   if (arr2.length === 1) {
     if (arr1.length) {
-      arr2.forEach(mainIndex => {
-        arr1.map(index => {
-          if (index === mainIndex
-            || index === mainIndex - 1
-            || index === mainIndex + 1
-          ) {
-            truth2.push(true)
-          }
-        })
-      })
+      getLiveCellsTruth(arr2, arr1, truth2)
     }
 
     if (arr3.length) {
-      arr2.forEach(mainIndex => {
-        arr3.map(index => {
-          if (index === mainIndex
-            || index === mainIndex - 1
-            || index === mainIndex + 1
-          ) {
-            truth2.push(true)
-          }
-        })
-      })
+      getLiveCellsTruth(arr2, arr3, truth2)
     }
 
     switch (true) {
@@ -257,31 +211,13 @@ const firstRule = initialState => {
   if (arr2.length === 2) {
     if (arr1.length) {
       if (arr2[0] === arr2[1] - 1) {
-        arr2.forEach(mainIndex => {
-          arr1.map(index => {
-            if (index === mainIndex
-              || index === mainIndex - 1
-              || index === mainIndex + 1
-            ) {
-              truth2.push(true)
-            }
-          })
-        })
+        getLiveCellsTruth(arr2, arr1, truth2)
       }
     }
 
     if (arr3.length) {
       if (arr2[0] === arr2[1] - 1) {
-        arr2.forEach(mainIndex => {
-          arr3.map(index => {
-            if (index === mainIndex
-              || index === mainIndex - 1
-              || index === mainIndex + 1
-            ) {
-              truth2.push(true)
-            }
-          })
-        })
+        getLiveCellsTruth(arr2, arr3, truth2)
       }
     }
 
@@ -356,16 +292,7 @@ const firstRule = initialState => {
 
   if (arr3.length === 1) {
     if (arr2.length) {
-      arr3.forEach(mainIndex => {
-        arr2.map(index => {
-          if (index === mainIndex
-            || index === mainIndex - 1
-            || index === mainIndex + 1
-          ) {
-            truth3.push(true)
-          }
-        })
-      })
+      getLiveCellsTruth(arr3, arr2, truth3)
     }
 
     switch (true) {
@@ -385,16 +312,7 @@ const firstRule = initialState => {
   if (arr3.length === 2) {
     if (arr2.length) {
       if (arr3[0] === arr3[1] - 1) {
-        arr3.forEach(mainIndex => {
-          arr2.map(index => {
-            if (index === mainIndex
-              || index === mainIndex - 1
-              || index === mainIndex + 1
-            ) {
-              truth3.push(true)
-            }
-          })
-        })
+        getLiveCellsTruth(arr3, arr2, truth3)
       }
     }
 
