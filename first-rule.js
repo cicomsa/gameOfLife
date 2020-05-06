@@ -1,16 +1,5 @@
 // Each live cell with one or no neighbors dies, as if by solitude.
-const array = ['', '', '']
-let replaceWith = [...array]
-
-const liveCells = array => {
-  result = array.reduce((result, el, i) => {
-    if (el === 'o')
-      result.push(i)
-    return result
-  }, [])
-
-  return result
-}
+const { version1, cells } = require('./helpers')
 
 const getLiveCellsTruth1 = (arr1, arr2, truth) => {
   arr1.forEach(mainIndex => {
@@ -41,6 +30,8 @@ const getLiveCellsTruth2 = (arr1, arr2, truth) => {
 }
 
 const checkLengthOne = (arr1, arr2, arr3, truth, index, newState, initialState) => {
+  const replaceWith = [...version1]
+
   if (arr1.length === 1) {
     if (arr2.length) {
       getLiveCellsTruth1(arr1, arr2, truth)
@@ -50,42 +41,31 @@ const checkLengthOne = (arr1, arr2, arr3, truth, index, newState, initialState) 
       getLiveCellsTruth1(arr1, arr3, truth)
     }
 
-    switch (true) {
-      case truth.length === 0:
-        replaceWith = [...array]
-        newState.splice(index, 1, replaceWith)
-        break
-      case truth.length === 1:
-        replaceWith = [...array]
-        newState.splice(index, 1, replaceWith)
-        break
-      default:
-        initialState
+    if (truth.length < 2) {
+      newState.splice(index, 1, replaceWith)
     }
   }
 }
 
 const checkLengthTwo = (arr1, arr2, arr3, truth, index, newState, initialState) => {
+  const replaceWith = [...version1]
+
   if (arr1.length === 2) {
-    if (arr2.length) {
-      if (arr1[0] === arr1[1] - 1) {
+    if (arr1[0] === arr1[1] - 1) {
+      if (arr2.length) {
         getLiveCellsTruth1(arr1, arr2, truth)
       }
-    }
 
-    if (arr3.length) {
-      if (arr1[0] === arr1[1] - 1) {
+      if (arr3.length) {
         getLiveCellsTruth1(arr1, arr3, truth)
       }
     }
 
     switch (true) {
       case truth.length === 0:
-        replaceWith = [...array]
         newState.splice(index, 1, replaceWith)
         break
       case truth.length === 1:
-        replaceWith = [...array]
         if (arr1[0] === arr1[1] - 1) {
           replaceWith[1] = 'o'
         }
@@ -99,6 +79,8 @@ const checkLengthTwo = (arr1, arr2, arr3, truth, index, newState, initialState) 
 }
 
 const checkLengthThree = (arr1, arr2, arr3, truth, index, newState, initialState) => {
+  const replaceWith = [...version1]
+
   if (arr1.length === 3) {
     getLiveCellsTruth2(arr1, arr2, truth)
 
@@ -106,24 +88,12 @@ const checkLengthThree = (arr1, arr2, arr3, truth, index, newState, initialState
       getLiveCellsTruth2(arr1, arr3, truth)
     }
 
-    switch (true) {
-      case truth.length === 1:
-        replaceWith = [...array]
-        if (arr1[0] === arr1[1] - 1) {
-          replaceWith[1] = 'o'
-        }
-        newState.splice(index, 1, replaceWith)
-        break
-      case arr3.length && truth.length === 2:
-        replaceWith = [...array]
-        if (arr1[0] === arr1[1] - 1) {
-          replaceWith[1] = 'o'
-        }
+    if (truth.length === 1 || truth.length === 2) {
+      if (arr1[0] === arr1[1] - 1) {
+        replaceWith[1] = 'o'
+      }
 
-        newState.splice(index, 1, replaceWith)
-        break
-      default:
-        initialState
+      newState.splice(index, 1, replaceWith)
     }
   }
 }
@@ -139,16 +109,14 @@ const firstRule = initialState => {
   resultsObject = {}
 
   initialState.map((arr, i) => {
-    resultsObject[`arr${i + 1}`] = liveCells(arr)
+    resultsObject[`arr${i + 1}`] = cells(arr, 'o')
     resultsObject[`truth${i + 1}`] = []
   })
 
   const { arr1, arr2, arr3, truth1, truth2, truth3 } = resultsObject
 
   checkLiveCellsTruth(arr1, arr2, truth1, 0, newState, initialState)
-
   checkLiveCellsTruth(arr2, arr1, truth2, 1, newState, initialState, arr3)
-
   checkLiveCellsTruth(arr3, arr2, truth3, 2, newState, initialState)
 
   return newState

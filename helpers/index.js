@@ -2,6 +2,16 @@ const populate = (arr1, arr2, arr3) => {
   return [arr1, arr2, arr3]
 }
 
+const cells = (array, type) => {
+  result = array.reduce((result, el, i) => {
+    if (el === type)
+      result.push(i)
+    return result
+  }, [])
+
+  return result
+}
+
 const version1 = ['', '', '']
 const version2 = ['o', '', '']
 const version3 = ['', 'o', '']
@@ -20,5 +30,6 @@ module.exports = {
   version5,
   version6,
   version7,
-  version8
+  version8,
+  cells
 }
