@@ -151,9 +151,6 @@ const firstRule = initialState => {
 
   checkLiveCellsTruth(arr3, arr2, truth3, 2, newState, initialState)
 
-  console.log(initialState)
-  console.log(newState, truth1, truth2, truth3)
-
   return newState
 }
 
