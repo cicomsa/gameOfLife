@@ -8,7 +8,8 @@ const version3 = ['', 'o', '']
 const version4 = ['', '', 'o']
 const version5 = ['o', 'o', '']
 const version6 = ['', 'o', 'o']
-const version7 = ['o', 'o', 'o']
+const version7 = ['o', '', 'o']
+const version8 = ['o', 'o', 'o']
 
 module.exports = {
   populate,
@@ -18,5 +19,6 @@ module.exports = {
   version4,
   version5,
   version6,
-  version7
+  version7,
+  version8
 }

@@ -1,9 +1,9 @@
 // Each live cell with one or no neighbors dies, as if by solitude.
-const replaceWith = ['', '', '']
-const replaceWith1 = [...replaceWith]
+const array = ['', '', '']
+let replaceWith = [...array]
 
 const liveCells = array => {
-  const result = array.reduce((result, el, i) => {
+  result = array.reduce((result, el, i) => {
     if (el === 'o')
       result.push(i)
     return result
@@ -111,7 +111,7 @@ const liveCells = array => {
 
 const firstRule = initialState => {
   let newState = [...initialState]
-  const resultsObject = {}
+  resultsObject = {}
 
   initialState.map((arr, i) => {
     resultsObject[`arr${i + 1}`] = liveCells(arr)
@@ -136,10 +136,13 @@ const firstRule = initialState => {
 
     switch (true) {
       case truth1.length === 0:
+        replaceWith = [...array]
         newState.splice(0, 1, replaceWith)
         break
       case truth1.length === 1:
+        replaceWith = [...array]
         newState.splice(0, 1, replaceWith)
+        break
         break
       default:
         initialState
@@ -148,29 +151,32 @@ const firstRule = initialState => {
 
   if (arr1.length === 2) {
     if (arr2.length) {
-      arr1.forEach(mainIndex => {
-        arr2.map(index => {
-          if (index === mainIndex
-            || index === mainIndex - 1
-            || index === mainIndex + 1
-          ) {
-            truth1.push(true)
-          }
+      if (arr1[0] === arr1[1] - 1) {
+        arr1.forEach(mainIndex => {
+          arr2.map(index => {
+            if (index === mainIndex
+              || index === mainIndex - 1
+              || index === mainIndex + 1
+            ) {
+              truth1.push(true)
+            }
+          })
         })
-      })
+      }
     }
 
     switch (true) {
       case truth1.length === 0:
+        replaceWith = [...array]
         newState.splice(0, 1, replaceWith)
         break
       case truth1.length === 1:
-        // newState.splice(0, 1, replaceWith)
+        replaceWith = [...array]
         if (arr1[0] === arr1[1] - 1) {
-          replaceWith1[1] = 'o'
+          replaceWith[1] = 'o'
         }
 
-        newState.splice(0, 1, replaceWith1)
+        newState.splice(0, 1, replaceWith)
         break
 
       default:
@@ -207,9 +213,11 @@ const firstRule = initialState => {
 
     switch (true) {
       case truth2.length === 0:
+        replaceWith = [...array]
         newState.splice(1, 1, replaceWith)
         break
       case truth2.length === 1:
+        replaceWith = [...array]
         newState.splice(1, 1, replaceWith)
         break
       default:
@@ -219,42 +227,47 @@ const firstRule = initialState => {
 
   if (arr2.length === 2) {
     if (arr1.length) {
-      arr2.forEach(mainIndex => {
-        arr1.map(index => {
-          if (index === mainIndex
-            || index === mainIndex - 1
-            || index === mainIndex + 1
-          ) {
-            truth2.push(true)
-          }
+      if (arr2[0] === arr2[1] - 1) {
+        arr2.forEach(mainIndex => {
+          arr1.map(index => {
+            if (index === mainIndex
+              || index === mainIndex - 1
+              || index === mainIndex + 1
+            ) {
+              truth2.push(true)
+            }
+          })
         })
-      })
+      }
     }
 
     if (arr3.length) {
-      arr2.forEach(mainIndex => {
-        arr3.map(index => {
-          if (index === mainIndex
-            || index === mainIndex - 1
-            || index === mainIndex + 1
-          ) {
-            truth2.push(true)
-          }
+      if (arr2[0] === arr2[1] - 1) {
+        arr2.forEach(mainIndex => {
+          arr3.map(index => {
+            if (index === mainIndex
+              || index === mainIndex - 1
+              || index === mainIndex + 1
+            ) {
+              truth2.push(true)
+            }
+          })
         })
-      })
+      }
     }
 
     switch (true) {
       case truth2.length === 0:
+        replaceWith = [...array]
         newState.splice(1, 1, replaceWith)
         break
       case truth2.length === 1:
-        // newState.splice(1, 1, replaceWith)
+        replaceWith = [...array]
         if (arr2[0] === arr2[1] - 1) {
-          replaceWith1[1] = 'o'
+          replaceWith[1] = 'o'
         }
 
-        newState.splice(1, 1, replaceWith1)
+        newState.splice(1, 1, replaceWith)
         break
       default:
         initialState
@@ -277,9 +290,11 @@ const firstRule = initialState => {
 
     switch (true) {
       case truth3.length === 0:
+        replaceWith = [...array]
         newState.splice(2, 1, replaceWith)
         break
       case truth3.length === 1:
+        replaceWith = [...array]
         newState.splice(2, 1, replaceWith)
         break
       default:
@@ -289,29 +304,32 @@ const firstRule = initialState => {
 
   if (arr3.length === 2) {
     if (arr2.length) {
-      arr3.forEach(mainIndex => {
-        arr2.map(index => {
-          if (index === mainIndex
-            || index === mainIndex - 1
-            || index === mainIndex + 1
-          ) {
-            truth3.push(true)
-          }
+      if (arr3[0] === arr3[1] - 1) {
+        arr3.forEach(mainIndex => {
+          arr2.map(index => {
+            if (index === mainIndex
+              || index === mainIndex - 1
+              || index === mainIndex + 1
+            ) {
+              truth3.push(true)
+            }
+          })
         })
-      })
+      }
     }
 
     switch (true) {
       case truth3.length === 0:
+        replaceWith = [...array]
         newState.splice(2, 1, replaceWith)
         break
       case truth3.length === 1:
-        // newState.splice(2, 1, replaceWith)
+        replaceWith = [...array]
         if (arr3[0] === arr3[1] - 1) {
-          replaceWith1[1] = 'o'
+          replaceWith[1] = 'o'
         }
 
-        newState.splice(2, 1, replaceWith1)
+        newState.splice(2, 1, replaceWith)
         break
       default:
         initialState
