@@ -122,4 +122,4 @@ const firstRule = initialState => {
   return newState
 }
 
-module.exports = firstRule;
+module.exports = firstRule
