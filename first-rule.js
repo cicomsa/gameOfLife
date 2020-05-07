@@ -1,4 +1,3 @@
-// Each live cell with one or no neighbors dies, as if by solitude.
 const { version1, cells } = require('./helpers')
 
 const newArray = (condition, newState, index, modifyArray = false) => {
