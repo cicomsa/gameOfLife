@@ -30,14 +30,17 @@ const getData2 = (index, alteredVersion) => {
 const testData = () => {
   let resultsObject = {}
 
-  // singles
-  resultsObject = { ...resultsObject, ...getData1('a', version2) }
-  resultsObject = { ...resultsObject, ...getData1('b', version3) }
-  resultsObject = { ...resultsObject, ...getData1('c', version4) }
 
-  // doubles
-  resultsObject = { ...resultsObject, ...getData2('j', version5) }
-  resultsObject = { ...resultsObject, ...getData2('k', version6) }
+  resultsObject = {
+    ...resultsObject,
+    // singles
+    ...getData1('a', version2),
+    ...getData1('b', version3),
+    ...getData1('c', version4),
+    // doubles
+    ...getData2('j', version5),
+    ...getData2('k', version6)
+  }
 
   return resultsObject
 }

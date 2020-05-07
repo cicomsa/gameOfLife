@@ -145,22 +145,22 @@ const getData8 = index => {
 const testData = () => {
   let resultsObject = {}
 
-  // singles
-  resultsObject = { ...resultsObject, ...getData1() }
-  resultsObject = { ...resultsObject, ...getData2() }
-  resultsObject = { ...resultsObject, ...getData3() }
-
-  // doubles
-  resultsObject = { ...resultsObject, ...getData4() }
-  resultsObject = { ...resultsObject, ...getData5() }
-  resultsObject = { ...resultsObject, ...getData6('f', version5) }
-  resultsObject = { ...resultsObject, ...getData6('g', version6) }
-
-  // separated doubles
-  resultsObject = { ...resultsObject, ...getData7('j') }
-
-  // triples
-  resultsObject = { ...resultsObject, ...getData8('k') }
+  resultsObject = {
+    ...resultsObject,
+    // singles
+    ...getData1(),
+    ...getData2(),
+    ...getData3(),
+    // doubles
+    ...getData4(),
+    ...getData5(),
+    ...getData6('f', version5),
+    // separated doubles
+    ...getData6('g', version6),
+    // triples
+    ...getData7('j'),
+    ...getData8('k')
+  }
 
   return resultsObject
 }

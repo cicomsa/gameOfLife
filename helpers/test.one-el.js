@@ -14,9 +14,12 @@ const getData = (index, alteredVersion) => {
 const testData = () => {
   let resultsObject = {}
 
-  resultsObject = { ...resultsObject, ...getData('a', version2) }
-  resultsObject = { ...resultsObject, ...getData('b', version3) }
-  resultsObject = { ...resultsObject, ...getData('c', version4) }
+  resultsObject = {
+    ...resultsObject,
+    ...getData('a', version2),
+    ...getData('b', version3),
+    ...getData('c', version4)
+  }
 
   return resultsObject
 }
