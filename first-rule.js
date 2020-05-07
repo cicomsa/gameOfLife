@@ -17,6 +17,7 @@ const getLiveCellsTruth1 = (arr1, arr2, truth) => {
 const getLiveCellsTruth2 = (arr1, arr2, truth) => {
   if (!arr2.length) {
     let els = []
+
     arr1.map((el, i) => {
       if (arr1[i + 1] === el + 1) {
         els.push(el)
