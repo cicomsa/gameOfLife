@@ -42,10 +42,8 @@ const populateData3 = (index, alteredVersion) => {
   const resultsObject = {}
   resultsObject[`${index}1`] = {}
   resultsObject[`${index}1`].initialState = populate(alteredVersion, version1, version1)
-
   resultsObject[`${index}2`] = {}
   resultsObject[`${index}2`].initialState = populate(version1, alteredVersion, version1)
-
   resultsObject[`${index}3`] = {}
   resultsObject[`${index}3`].initialState = populate(version1, version1, alteredVersion)
 
