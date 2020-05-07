@@ -61,19 +61,13 @@ const checkLengthTwo = (arr1, arr2, arr3, truth, index, newState, initialState) 
       }
     }
 
-    switch (true) {
-      case truth.length === 0:
-        newState.splice(index, 1, replaceWith)
-        break
-      case truth.length === 1:
-        if (arr1[0] === arr1[1] - 1) {
-          replaceWith[1] = 'o'
-        }
+    if (truth.length === 0) {
+      newState.splice(index, 1, replaceWith)
+    }
 
-        newState.splice(index, 1, replaceWith)
-        break
-      default:
-        initialState
+    if (truth.length === 1 && arr1[0] === arr1[1] - 1) {
+      replaceWith[1] = 'o'
+      newState.splice(index, 1, replaceWith)
     }
   }
 }
@@ -88,11 +82,11 @@ const checkLengthThree = (arr1, arr2, arr3, truth, index, newState, initialState
       getLiveCellsTruth2(arr1, arr3, truth)
     }
 
-    if (truth.length === 1 || truth.length === 2) {
-      if (arr1[0] === arr1[1] - 1) {
-        replaceWith[1] = 'o'
-      }
-
+    if (
+      (truth.length === 1 || truth.length === 2)
+      && arr1[0] === arr1[1] - 1
+    ) {
+      replaceWith[1] = 'o'
       newState.splice(index, 1, replaceWith)
     }
   }
