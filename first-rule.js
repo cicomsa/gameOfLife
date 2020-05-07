@@ -30,7 +30,7 @@ const getLiveCellsTruth2 = (arr1, arr2, truth) => {
 }
 
 const checkLengthOne = (arr1, arr2, arr3, truth, index, newState, initialState) => {
-  const replaceWith = [...version1]
+  const newArray = [...version1]
 
   if (arr1.length === 1) {
     if (arr2.length) {
@@ -42,13 +42,13 @@ const checkLengthOne = (arr1, arr2, arr3, truth, index, newState, initialState) 
     }
 
     if (truth.length < 2) {
-      newState.splice(index, 1, replaceWith)
+      newState.splice(index, 1, newArray)
     }
   }
 }
 
 const checkLengthTwo = (arr1, arr2, arr3, truth, index, newState, initialState) => {
-  const replaceWith = [...version1]
+  const newArray = [...version1]
 
   if (arr1.length === 2) {
     if (arr1[0] === arr1[1] - 1) {
@@ -62,18 +62,18 @@ const checkLengthTwo = (arr1, arr2, arr3, truth, index, newState, initialState) 
     }
 
     if (truth.length === 0) {
-      newState.splice(index, 1, replaceWith)
+      newState.splice(index, 1, newArray)
     }
 
     if (truth.length === 1 && arr1[0] === arr1[1] - 1) {
-      replaceWith[1] = 'o'
-      newState.splice(index, 1, replaceWith)
+      newArray[1] = 'o'
+      newState.splice(index, 1, newArray)
     }
   }
 }
 
 const checkLengthThree = (arr1, arr2, arr3, truth, index, newState, initialState) => {
-  const replaceWith = [...version1]
+  const newArray = [...version1]
 
   if (arr1.length === 3) {
     getLiveCellsTruth2(arr1, arr2, truth)
@@ -86,8 +86,8 @@ const checkLengthThree = (arr1, arr2, arr3, truth, index, newState, initialState
       (truth.length === 1 || truth.length === 2)
       && arr1[0] === arr1[1] - 1
     ) {
-      replaceWith[1] = 'o'
-      newState.splice(index, 1, replaceWith)
+      newArray[1] = 'o'
+      newState.splice(index, 1, newArray)
     }
   }
 }
