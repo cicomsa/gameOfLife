@@ -30,7 +30,6 @@ const getData2 = (index, alteredVersion) => {
 const testData = () => {
   let resultsObject = {}
 
-
   resultsObject = {
     ...resultsObject,
     // singles
