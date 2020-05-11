@@ -203,6 +203,60 @@ const getData10 = index => {
   return resultsObject
 }
 
+const getData11 = index => {
+  const resultsObject = populateData5(index, version7)
+
+  resultsObject[`${index}1`].result = populate(version1, version2, version1)
+  resultsObject[`${index}2`].result = populate(version1, version2, version1)
+  resultsObject[`${index}3`].result = populate(version1, version1, version1)
+
+  resultsObject[`${index}4`].result = populate(version1, version3, version1)
+  resultsObject[`${index}5`].result = populate(version1, version3, version1)
+  resultsObject[`${index}6`].result = populate(version1, version3, version1)
+
+  resultsObject[`${index}7`].result = populate(version1, version1, version1)
+  resultsObject[`${index}8`].result = populate(version1, version4, version1)
+  resultsObject[`${index}9`].result = populate(version1, version4, version1)
+
+  return resultsObject
+}
+
+const getData12 = index => {
+  const resultsObject = populateData6(index, version7)
+
+  resultsObject[`${index}1`].result = populate(version2, version1, version1)
+  resultsObject[`${index}2`].result = populate(version2, version3, version1)
+  resultsObject[`${index}3`].result = populate(version1, version1, version1)
+
+  resultsObject[`${index}4`].result = populate(version3, version2, version1)
+  resultsObject[`${index}5`].result = populate(version3, version7, version3)
+  resultsObject[`${index}6`].result = populate(version3, version1, version1)
+
+  resultsObject[`${index}7`].result = populate(version1, version1, version1)
+  resultsObject[`${index}8`].result = populate(version1, version4, version3)
+  resultsObject[`${index}9`].result = populate(version1, version4, version1)
+
+  return resultsObject
+}
+
+const getData13 = index => {
+  const resultsObject = populateData7(index, version7)
+
+  resultsObject[`${index}1`].result = populate(version1, version2, version1)
+  resultsObject[`${index}2`].result = populate(version1, version3, version1)
+  resultsObject[`${index}3`].result = populate(version1, version1, version1)
+
+  resultsObject[`${index}4`].result = populate(version1, version2, version1)
+  resultsObject[`${index}5`].result = populate(version1, version3, version1)
+  resultsObject[`${index}6`].result = populate(version1, version4, version1)
+
+  resultsObject[`${index}7`].result = populate(version1, version1, version1)
+  resultsObject[`${index}8`].result = populate(version1, version4, version3)
+  resultsObject[`${index}9`].result = populate(version1, version4, version1)
+
+  return resultsObject
+}
+
 const testData = () => {
   let resultsObject = {}
 
@@ -219,7 +273,10 @@ const testData = () => {
     // ...getData7('i'),
     // ...getData8('j'),
     // ...getData9('k'),
-    // ...getData10('l')
+    // ...getData10('l'),
+    // ...getData11('m'),
+    // ...getData12('n'),
+    // ...getData13('o')
   }
 
   return resultsObject
