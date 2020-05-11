@@ -118,6 +118,7 @@ const populateData4 = (index, alternateVersion) => {
   return resultsObject
 }
 
+// four elements - doubles + singles - part 1
 const populateData5 = (index, alternateVersion) => {
   const resultsObject = {}
 
@@ -143,6 +144,7 @@ const populateData5 = (index, alternateVersion) => {
   return resultsObject
 }
 
+// four elements - doubles + singles - part 2
 const populateData5 = (index, alternateVersion) => {
   const resultsObject = {}
 
@@ -168,6 +170,7 @@ const populateData5 = (index, alternateVersion) => {
   return resultsObject
 }
 
+// four elements - doubles + singles - part 3
 const populateData6 = (index, alternateVersion) => {
   const resultsObject = {}
 
@@ -198,9 +201,9 @@ module.exports = {
   populateData2,
   populateData3,
   populateData4,
-  // populateData5,
-  // populateData6,
-  // populateData7,
+  populateData5,
+  populateData6,
+  populateData7,
   // populateData8,
   // populateData9,
   // populateData10,
