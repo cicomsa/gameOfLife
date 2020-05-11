@@ -12,30 +12,30 @@ const testOneEl1Data = {
 }
 
 // test one element only
-test('One element only data', () => {
-  expect(rule(testOneEl1Data.initialState)).toEqual(testOneEl1Data.result);
+// test('One element only data', () => {
+//   expect(rule(testOneEl1Data.initialState)).toEqual(testOneEl1Data.result);
 
-  Object.keys(testOneElData()).map(key => {
-    expect(rule(testTwoElsData()[key].initialState))
-      .toEqual(testTwoElsData()[key].result)
-  })
-})
+//   Object.keys(testOneElData()).map(key => {
+//     expect(rule(testTwoElsData()[key].initialState))
+//       .toEqual(testTwoElsData()[key].result)
+//   })
+// })
 
-// test two elements only
-test('Two elements only data', () => {
-  Object.keys(testTwoElsData()).map(key => {
-    expect(rule(testTwoElsData()[key].initialState))
-      .toEqual(testTwoElsData()[key].result)
-  })
-})
+// // test two elements only
+// test('Two elements only data', () => {
+//   Object.keys(testTwoElsData()).map(key => {
+//     expect(rule(testTwoElsData()[key].initialState))
+//       .toEqual(testTwoElsData()[key].result)
+//   })
+// })
 
-// test three elements
-test('Three elements data', () => {
-  Object.keys(testThreeElsData()).map(key => {
-    expect(rule(testThreeElsData()[key].initialState))
-      .toEqual(testThreeElsData()[key].result)
-  })
-})
+// // test three elements
+// test('Three elements data', () => {
+//   Object.keys(testThreeElsData()).map(key => {
+//     expect(rule(testThreeElsData()[key].initialState))
+//       .toEqual(testThreeElsData()[key].result)
+//   })
+// })
 
 // test four elements
 test('Four elements data', () => {
@@ -45,6 +45,6 @@ test('Four elements data', () => {
   })
 })
 
-test('Main first rule test', () => {
-  expect(rule(initialState)).toEqual(firstRule)
-})
+// test('Main first rule test', () => {
+//   expect(rule(initialState)).toEqual(firstRule)
+// })
