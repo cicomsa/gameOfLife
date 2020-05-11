@@ -203,10 +203,5 @@ module.exports = {
   populateData4,
   populateData5,
   populateData6,
-  populateData7,
-  // populateData8,
-  // populateData9,
-  // populateData10,
-  // populateData11,
-  // populateData12
+  populateData7
 }

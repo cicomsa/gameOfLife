@@ -1,13 +1,13 @@
 const {
   populate,
-  // version1,
-  // version2,
-  // version3,
-  // version4,
-  // version5,
-  // version6,
-  // version7,
-  // version8
+  version1,
+  version2,
+  version3,
+  version4,
+  version5,
+  version6,
+  version7,
+  version8
 } = require('./index')
 const {
   populateData1,
@@ -18,15 +18,6 @@ const {
   populateData6,
   populateData7,
 } = require('./fours.populate-data')
-
-const version1 = ['', '', '']
-const version2 = ['o', '', '']
-const version3 = ['', 'o', '']
-const version4 = ['', '', 'o']
-const version5 = ['o', 'o', '']
-const version6 = ['', 'o', 'o']
-const version7 = ['o', '', 'o']
-const version8 = ['o', 'o', 'o']
 
 const getData1 = index => {
   const resultsObject = populateData1(index)
