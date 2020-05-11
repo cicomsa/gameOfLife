@@ -1,8 +1,9 @@
-const rule = require('./game')
+const rule = require('./game2')
 const { populate, version1 } = require('./helpers')
 const testOneElData = require('./helpers/test.one-el')
 const testTwoElsData = require('./helpers/test.two-els')
 const testThreeElsData = require('./helpers/test.three-els')
+const testFourElsData = require('./helpers/test.four-els')
 const { initialState, firstRule } = require('./states')
 
 const testOneEl1Data = {
@@ -33,6 +34,14 @@ test('Three elements data', () => {
   Object.keys(testThreeElsData()).map(key => {
     expect(rule(testThreeElsData()[key].initialState))
       .toEqual(testThreeElsData()[key].result)
+  })
+})
+
+// test four elements
+test('Four elements data', () => {
+  Object.keys(testFourElsData()).map(key => {
+    expect(rule(testFourElsData()[key].initialState))
+      .toEqual(testFourElsData()[key].result)
   })
 })
 
