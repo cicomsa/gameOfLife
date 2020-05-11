@@ -52,6 +52,8 @@ const firstRule = initialState => {
   }
 
   if (arr1.length === 2) {
+    const els = []
+
     if (arr2.length) {
       if (arr1[0] === arr1[1] - 1) {
         arr1.forEach(mainIndex => {
@@ -61,6 +63,24 @@ const firstRule = initialState => {
               || index === mainIndex + 1
             ) {
               truth1.push(true)
+            }
+          })
+        })
+      } else {
+        arr1.forEach(mainIndex => {
+          arr2.map((index, i) => {
+            if (
+              (index === mainIndex
+                || index === mainIndex - 1
+                || index === mainIndex + 1
+              ) && (
+                arr2[i + 1] === mainIndex
+                || arr2[i + 1] === mainIndex - 1
+                || arr2[i + 1] === mainIndex + 1
+              )
+            ) {
+              truth1.push(true)
+              els.push(mainIndex)
             }
           })
         })
@@ -76,6 +96,8 @@ const firstRule = initialState => {
         replaceWith = [...array]
         if (arr1[0] === arr1[1] - 1) {
           replaceWith[1] = 'o'
+        } else {
+          els.map(el => replaceWith[el] = 'o')
         }
 
         newState.splice(0, 1, replaceWith)
@@ -180,6 +202,8 @@ const firstRule = initialState => {
   }
 
   if (arr2.length === 2) {
+    const els = []
+
     if (arr1.length) {
       if (arr2[0] === arr2[1] - 1) {
         arr2.forEach(mainIndex => {
@@ -189,6 +213,24 @@ const firstRule = initialState => {
               || index === mainIndex + 1
             ) {
               truth2.push(true)
+            }
+          })
+        })
+      } else {
+        arr2.forEach(mainIndex => {
+          arr1.map((index, i) => {
+            if (
+              (index === mainIndex
+                || index === mainIndex - 1
+                || index === mainIndex + 1
+              ) && (
+                arr1[i + 1] === mainIndex
+                || arr1[i + 1] === mainIndex - 1
+                || arr1[i + 1] === mainIndex + 1
+              )
+            ) {
+              truth2.push(true)
+              els.push(mainIndex)
             }
           })
         })
@@ -207,6 +249,24 @@ const firstRule = initialState => {
             }
           })
         })
+      } else {
+        arr2.forEach(mainIndex => {
+          arr3.map((index, i) => {
+            if (
+              (index === mainIndex
+                || index === mainIndex - 1
+                || index === mainIndex + 1
+              ) && (
+                arr3[i + 1] === mainIndex
+                || arr3[i + 1] === mainIndex - 1
+                || arr3[i + 1] === mainIndex + 1
+              )
+            ) {
+              truth2.push(true)
+              els.push(mainIndex)
+            }
+          })
+        })
       }
     }
 
@@ -219,6 +279,8 @@ const firstRule = initialState => {
         replaceWith = [...array]
         if (arr2[0] === arr2[1] - 1) {
           replaceWith[1] = 'o'
+        } else {
+          els.map(el => replaceWith[el] = 'o')
         }
 
         newState.splice(1, 1, replaceWith)
@@ -257,7 +319,7 @@ const firstRule = initialState => {
         })
       })
     }
-    console.log(els)
+
     if (!arr3.length) {
       if (!arr1.length) {
         arr2.map((el, i) => {
@@ -286,7 +348,6 @@ const firstRule = initialState => {
         })
       })
     }
-    console.log(els)
 
     switch (true) {
       case truth2.length === 1:
@@ -341,6 +402,8 @@ const firstRule = initialState => {
   }
 
   if (arr3.length === 2) {
+    const els = []
+
     if (arr2.length) {
       if (arr3[0] === arr3[1] - 1) {
         arr3.forEach(mainIndex => {
@@ -350,6 +413,24 @@ const firstRule = initialState => {
               || index === mainIndex + 1
             ) {
               truth3.push(true)
+            }
+          })
+        })
+      } else {
+        arr3.forEach(mainIndex => {
+          arr2.map((index, i) => {
+            if (
+              (index === mainIndex
+                || index === mainIndex - 1
+                || index === mainIndex + 1
+              ) && (
+                arr2[i + 1] === mainIndex
+                || arr2[i + 1] === mainIndex - 1
+                || arr2[i + 1] === mainIndex + 1
+              )
+            ) {
+              truth3.push(true)
+              els.push(mainIndex)
             }
           })
         })
@@ -365,6 +446,8 @@ const firstRule = initialState => {
         replaceWith = [...array]
         if (arr3[0] === arr3[1] - 1) {
           replaceWith[1] = 'o'
+        } else {
+          els.map(el => replaceWith[el] = 'o')
         }
 
         newState.splice(2, 1, replaceWith)
