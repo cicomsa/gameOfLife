@@ -188,17 +188,17 @@ const getData9 = index => {
 const getData10 = index => {
   const resultsObject = populateData7(index, version6)
 
-  resultsObject[`${index}1`].result = populate(version1, version1, version1)
-  resultsObject[`${index}2`].result = populate(version1, version1, version1)
-  resultsObject[`${index}3`].result = populate(version1, version1, version1)
+  resultsObject[`${index}1`].result = populate(version1, version2, version3)
+  resultsObject[`${index}2`].result = populate(version1, version3, version6)
+  resultsObject[`${index}3`].result = populate(version1, version4, version6)
 
-  resultsObject[`${index}4`].result = populate(version1, version1, version1)
-  resultsObject[`${index}5`].result = populate(version1, version1, version1)
-  resultsObject[`${index}6`].result = populate(version1, version1, version1)
+  resultsObject[`${index}4`].result = populate(version1, version2, version3)
+  resultsObject[`${index}5`].result = populate(version1, version3, version6)
+  resultsObject[`${index}6`].result = populate(version1, version4, version6)
 
-  resultsObject[`${index}7`].result = populate(version1, version1, version1)
-  resultsObject[`${index}8`].result = populate(version1, version1, version1)
-  resultsObject[`${index}9`].result = populate(version1, version1, version1)
+  resultsObject[`${index}7`].result = populate(version1, version1, version3)
+  resultsObject[`${index}8`].result = populate(version1, version3, version6)
+  resultsObject[`${index}9`].result = populate(version1, version4, version6)
 
   return resultsObject
 }
@@ -217,7 +217,9 @@ const testData = () => {
     ...getData5('g'),
     // ...getData6('h'),
     // ...getData7('i'),
-    // ...getData8('j')
+    // ...getData8('j'),
+    // ...getData9('k'),
+    // ...getData10('l')
   }
 
   return resultsObject
