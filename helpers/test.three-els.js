@@ -10,16 +10,16 @@ const {
   version8
 } = require('./index')
 const {
+  populateData1,
+  populateData2,
+  populateData3,
   populateData4,
-  populateData5,
-  populateData6,
-  populateData7,
-  populateData8
-} = require('./populate-data')
+  populateData5
+} = require('./threes.populate-data')
 
 // with version 2 at the end
 const getData1 = () => {
-  const resultsObject = populateData4('a', version2)
+  const resultsObject = populateData1('a', version2)
   resultsObject.a1.result = populate(version1, version2, version1)
   resultsObject.a2.result = populate(version1, version3, version1)
   resultsObject.a3.result = populate(version1, version1, version1)
@@ -35,7 +35,7 @@ const getData1 = () => {
 
 // with version 3 at the end
 const getData2 = () => {
-  const resultsObject = populateData4('b', version3)
+  const resultsObject = populateData1('b', version3)
   resultsObject.b1.result = populate(version1, version2, version1)
   resultsObject.b2.result = populate(version1, version3, version1)
   resultsObject.b3.result = populate(version1, version1, version1)
@@ -51,7 +51,7 @@ const getData2 = () => {
 
 // with version 4 at the end
 const getData3 = () => {
-  const resultsObject = populateData4('c', version4)
+  const resultsObject = populateData1('c', version4)
   resultsObject.c1.result = populate(version1, version1, version1)
   resultsObject.c2.result = populate(version1, version3, version1)
   resultsObject.c3.result = populate(version1, version1, version1)
@@ -66,7 +66,7 @@ const getData3 = () => {
 }
 
 const getData4 = () => {
-  const resultsObject = populateData5('d', version5)
+  const resultsObject = populateData2('d', version5)
   resultsObject.d1.result = populate(version5, version2, version1)
   resultsObject.d2.result = populate(version3, version1, version1)
   resultsObject.d3.result = populate(version2, version5, version1)
@@ -80,7 +80,7 @@ const getData4 = () => {
 }
 
 const getData5 = () => {
-  const resultsObject = populateData5('e', version6)
+  const resultsObject = populateData2('e', version6)
   resultsObject.e1.result = populate(version3, version1, version1)
   resultsObject.e2.result = populate(version6, version4, version1)
   resultsObject.e3.result = populate(version1, version3, version1)
@@ -94,7 +94,7 @@ const getData5 = () => {
 }
 
 const getData6 = (index, alternateVersion) => {
-  const resultsObject = populateData6(index, alternateVersion)
+  const resultsObject = populateData3(index, alternateVersion)
   resultsObject[`${index}1`].result = populate(version1, version1, version1)
   resultsObject[`${index}2`].result = populate(version1, version1, version1)
   resultsObject[`${index}3`].result = populate(version1, version1, version1)
@@ -110,7 +110,7 @@ const getData6 = (index, alternateVersion) => {
 }
 
 const getData7 = index => {
-  const resultsObject = populateData7(index)
+  const resultsObject = populateData4(index)
   resultsObject[`${index}1`].result = populate(version1, version1, version1)
   resultsObject[`${index}2`].result = populate(version1, version3, version1)
   resultsObject[`${index}3`].result = populate(version1, version1, version1)
@@ -134,7 +134,7 @@ const getData7 = index => {
 }
 
 const getData8 = index => {
-  const resultsObject = populateData8(index)
+  const resultsObject = populateData5(index)
   resultsObject[`${index}1`].result = populate(version3, version1, version1)
   resultsObject[`${index}2`].result = populate(version1, version3, version1)
   resultsObject[`${index}3`].result = populate(version1, version1, version3)

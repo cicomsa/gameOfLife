@@ -10,11 +10,14 @@ const {
   // version8
 } = require('./index')
 const {
-  populateData9,
-  populateData10,
-  populateData11,
-  populateData12
-} = require('./populate-data')
+  populateData1,
+  populateData2,
+  populateData3,
+  populateData4,
+  populateData5,
+  populateData6,
+  populateData7,
+} = require('./fours.populate-data')
 
 const version1 = ['', '', '']
 const version2 = ['o', '', '']
@@ -26,7 +29,7 @@ const version7 = ['o', '', 'o']
 const version8 = ['o', 'o', 'o']
 
 const getData1 = index => {
-  const resultsObject = populateData9(index)
+  const resultsObject = populateData1(index)
   // triple up
   resultsObject[`${index}1`].result = populate(version5, version2, version1)
   resultsObject[`${index}2`].result = populate(version8, version3, version1)
@@ -56,7 +59,7 @@ const getData1 = index => {
 }
 
 const getData2 = (index, alternateVersion) => {
-  const resultsObject = populateData10(index, alternateVersion)
+  const resultsObject = populateData2(index, alternateVersion)
 
   resultsObject[`${index}1`].result = populate(alternateVersion, version5, version1)
   resultsObject[`${index}2`].result = populate(alternateVersion, version6, version1)
@@ -69,7 +72,7 @@ const getData2 = (index, alternateVersion) => {
 }
 
 const getData3 = (index, alternateVersion, alternateVersion2) => {
-  const resultsObject = populateData11(index, alternateVersion)
+  const resultsObject = populateData3(index, alternateVersion)
 
   resultsObject[`${index}1`].result = populate(alternateVersion2, alternateVersion, version1)
   resultsObject[`${index}2`].result = populate(version1, version1, version1)
@@ -83,7 +86,67 @@ const getData3 = (index, alternateVersion, alternateVersion2) => {
 }
 
 const getData4 = index => {
-  const resultsObject = populateData12(index)
+  const resultsObject = populateData4(index)
+
+  resultsObject[`${index}1`].result = populate(version1, version1, version1)
+  resultsObject[`${index}2`].result = populate(version1, version1, version1)
+  resultsObject[`${index}3`].result = populate(version1, version1, version1)
+
+  return resultsObject
+}
+
+const getData5 = index => {
+  const resultsObject = populateData5(index, version5)
+
+  resultsObject[`${index}1`].result = populate(version1, version1, version1)
+  resultsObject[`${index}2`].result = populate(version1, version1, version1)
+  resultsObject[`${index}3`].result = populate(version1, version1, version1)
+
+  return resultsObject
+}
+
+const getData6 = index => {
+  const resultsObject = populateData5(index, version6)
+
+  resultsObject[`${index}1`].result = populate(version1, version1, version1)
+  resultsObject[`${index}2`].result = populate(version1, version1, version1)
+  resultsObject[`${index}3`].result = populate(version1, version1, version1)
+
+  return resultsObject
+}
+
+const getData7 = index => {
+  const resultsObject = populateData6(index, version5)
+
+  resultsObject[`${index}1`].result = populate(version1, version1, version1)
+  resultsObject[`${index}2`].result = populate(version1, version1, version1)
+  resultsObject[`${index}3`].result = populate(version1, version1, version1)
+
+  return resultsObject
+}
+
+const getData8 = index => {
+  const resultsObject = populateData6(index, version6)
+
+  resultsObject[`${index}1`].result = populate(version1, version1, version1)
+  resultsObject[`${index}2`].result = populate(version1, version1, version1)
+  resultsObject[`${index}3`].result = populate(version1, version1, version1)
+
+  return resultsObject
+}
+
+const getData9 = index => {
+  const resultsObject = populateData7(index, version5)
+
+  resultsObject[`${index}1`].result = populate(version1, version1, version1)
+  resultsObject[`${index}2`].result = populate(version1, version1, version1)
+  resultsObject[`${index}3`].result = populate(version1, version1, version1)
+
+  return resultsObject
+}
+
+const getData10 = index => {
+  const resultsObject = populateData7(index, version6)
 
   resultsObject[`${index}1`].result = populate(version1, version1, version1)
   resultsObject[`${index}2`].result = populate(version1, version1, version1)
