@@ -145,7 +145,7 @@ const populateData5 = (index, alternateVersion) => {
 }
 
 // four elements - doubles + singles - part 2
-const populateData5 = (index, alternateVersion) => {
+const populateData6 = (index, alternateVersion) => {
   const resultsObject = {}
 
   resultsObject[`${index}1`] = {}
@@ -171,7 +171,7 @@ const populateData5 = (index, alternateVersion) => {
 }
 
 // four elements - doubles + singles - part 3
-const populateData6 = (index, alternateVersion) => {
+const populateData7 = (index, alternateVersion) => {
   const resultsObject = {}
 
   resultsObject[`${index}1`] = {}
