@@ -426,35 +426,6 @@ const firstRule = initialState => {
     }
   }
 
-  // if (arr3.length === 3) {
-  //   if (!arr2.length) {
-  //     let els = []
-  //     arr3.map((el, i) => {
-  //       if (arr3[i + 1] === el + 1) {
-  //         els.push(el)
-  //       }
-  //     })
-
-  //     if (els[0] === els[1] - 1) {
-  //       truth3.push(true)
-  //     }
-  //   }
-
-  //   switch (true) {
-  //     case truth3.length === 1:
-  //       replaceWith = [...array]
-  //       if (arr3[0] === arr3[1] - 1) {
-  //         replaceWith[1] = 'o'
-  //       }
-
-  //       newState.splice(2, 1, replaceWith)
-  //       break
-
-  //     default:
-  //       initialState
-  //   }
-  // }
-
   console.log(initialState)
   console.log(newState, truth1, truth2, truth3)
   return newState
