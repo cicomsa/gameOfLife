@@ -9,7 +9,7 @@ const {
   // version7,
   // version8
 } = require('./index')
-// const { populateData2, populateData3 } = require('./populate-data')
+const { populateData9, populateData10 } = require('./populate-data')
 
 const version1 = ['', '', '']
 const version2 = ['o', '', '']
@@ -20,70 +20,8 @@ const version6 = ['', 'o', 'o']
 const version7 = ['o', '', 'o']
 const version8 = ['o', 'o', 'o']
 
-
-const populateData2 = index => {
-  const resultsObject = {}
-  // triple up
-  resultsObject[`${index}1`] = {}
-  resultsObject[`${index}1`].initialState = populate(version8, version2, version1)
-  resultsObject[`${index}2`] = {}
-  resultsObject[`${index}2`].initialState = populate(version8, version3, version1)
-  resultsObject[`${index}3`] = {}
-  resultsObject[`${index}3`].initialState = populate(version8, version4, version1)
-
-  resultsObject[`${index}4`] = {}
-  resultsObject[`${index}4`].initialState = populate(version8, version1, version2)
-  resultsObject[`${index}5`] = {}
-  resultsObject[`${index}5`].initialState = populate(version8, version1, version3)
-  resultsObject[`${index}6`] = {}
-  resultsObject[`${index}6`].initialState = populate(version8, version1, version4)
-
-  // // triple middle
-  resultsObject[`${index}7`] = {}
-  resultsObject[`${index}7`].initialState = populate(version2, version8, version1)
-  resultsObject[`${index}8`] = {}
-  resultsObject[`${index}8`].initialState = populate(version3, version8, version1)
-  resultsObject[`${index}9`] = {}
-  resultsObject[`${index}9`].initialState = populate(version4, version8, version1)
-
-  resultsObject[`${index}10`] = {}
-  resultsObject[`${index}10`].initialState = populate(version1, version8, version2)
-  resultsObject[`${index}11`] = {}
-  resultsObject[`${index}11`].initialState = populate(version1, version8, version3)
-  resultsObject[`${index}12`] = {}
-  resultsObject[`${index}12`].initialState = populate(version1, version8, version4)
-
-  // // triple down
-  resultsObject[`${index}13`] = {}
-  resultsObject[`${index}13`].initialState = populate(version2, version1, version8)
-  resultsObject[`${index}14`] = {}
-  resultsObject[`${index}14`].initialState = populate(version3, version1, version8)
-  resultsObject[`${index}15`] = {}
-  resultsObject[`${index}15`].initialState = populate(version4, version1, version8)
-
-  resultsObject[`${index}16`] = {}
-  resultsObject[`${index}16`].initialState = populate(version1, version2, version8)
-  resultsObject[`${index}17`] = {}
-  resultsObject[`${index}17`].initialState = populate(version1, version3, version8)
-  resultsObject[`${index}18`] = {}
-  resultsObject[`${index}18`].initialState = populate(version1, version4, version8)
-
-  return resultsObject
-}
-
-// const version1 = ['', '', '']
-// const version2 = ['o', '', '']
-// const version3 = ['', 'o', '']
-// const version4 = ['', '', 'o']
-
-// const version5 = ['o', 'o', '']
-// const version6 = ['', 'o', 'o']
-
-// const version7 = ['o', '', 'o']
-// const version8 = ['o', 'o', 'o']
-
 const getData1 = index => {
-  const resultsObject = populateData2(index)
+  const resultsObject = populateData9(index)
   // triple up
   resultsObject[`${index}1`].result = populate(version5, version2, version1)
   resultsObject[`${index}2`].result = populate(version8, version3, version1)
@@ -112,12 +50,27 @@ const getData1 = index => {
   return resultsObject
 }
 
+const getData2 = (index, alternateVersion) => {
+  const resultsObject = populateData10(index, alternateVersion)
+
+  resultsObject[`${index}1`].result = populate(alternateVersion, version5, version1)
+  resultsObject[`${index}2`].result = populate(alternateVersion, version6, version1)
+  resultsObject[`${index}3`].result = populate(version1, version1, version1)
+  resultsObject[`${index}4`].result = populate(version1, version1, version1)
+  resultsObject[`${index}5`].result = populate(version1, alternateVersion, version5)
+  resultsObject[`${index}6`].result = populate(version1, alternateVersion, version6)
+
+  return resultsObject
+}
+
 const testData = () => {
   let resultsObject = {}
 
   resultsObject = {
     ...resultsObject,
     ...getData1('a'),
+    ...getData2('b', version5),
+    ...getData2('c', version6)
   }
 
   return resultsObject
