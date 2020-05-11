@@ -258,6 +258,27 @@ const populateData10 = (index, alternateVersion) => {
   return resultsObject
 }
 
+// four elements - separate doubles + doubles
+const populateData11 = (index, alternateVersion) => {
+  const resultsObject = {}
+  resultsObject[`${index}1`] = {}
+  resultsObject[`${index}1`].initialState = populate(version7, alternateVersion, version1)
+  resultsObject[`${index}2`] = {}
+  resultsObject[`${index}2`].initialState = populate(version7, version1, alternateVersion)
+
+  resultsObject[`${index}3`] = {}
+  resultsObject[`${index}3`].initialState = populate(alternateVersion, version7, version1)
+  resultsObject[`${index}4`] = {}
+  resultsObject[`${index}4`].initialState = populate(version1, version7, alternateVersion)
+
+  resultsObject[`${index}5`] = {}
+  resultsObject[`${index}5`].initialState = populate(alternateVersion, version1, version7)
+  resultsObject[`${index}6`] = {}
+  resultsObject[`${index}6`].initialState = populate(version1, alternateVersion, version7)
+
+  return resultsObject
+}
+
 module.exports = {
   populateData1,
   populateData2,
@@ -268,5 +289,6 @@ module.exports = {
   populateData7,
   populateData8,
   populateData9,
-  populateData10
+  populateData10,
+  populateData11
 }

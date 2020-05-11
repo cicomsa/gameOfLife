@@ -9,7 +9,7 @@ const {
   // version7,
   // version8
 } = require('./index')
-const { populateData9, populateData10 } = require('./populate-data')
+const { populateData9, populateData10, populateData11 } = require('./populate-data')
 
 const version1 = ['', '', '']
 const version2 = ['o', '', '']
@@ -63,14 +63,30 @@ const getData2 = (index, alternateVersion) => {
   return resultsObject
 }
 
+const getData3 = (index, alternateVersion) => {
+  const resultsObject = populateData11(index, alternateVersion)
+
+  resultsObject[`${index}1`].result = populate(version2, alternateVersion, version1)
+  resultsObject[`${index}2`].result = populate(version1, version1, version1)
+  resultsObject[`${index}3`].result = populate(alternateVersion, version2, version1)
+
+  resultsObject[`${index}4`].result = populate(version1, version2, alternateVersion)
+  resultsObject[`${index}5`].result = populate(version1, version1, version1)
+  resultsObject[`${index}6`].result = populate(version1, alternateVersion, version2)
+
+  return resultsObject
+}
+
 const testData = () => {
   let resultsObject = {}
 
   resultsObject = {
     ...resultsObject,
-    ...getData1('a'),
-    ...getData2('b', version5),
-    ...getData2('c', version6)
+    // ...getData1('a'),
+    // ...getData2('b', version5),
+    // ...getData2('c', version6),
+    ...getData3('d', version5),
+    ...getData3('e', version6)
   }
 
   return resultsObject
