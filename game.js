@@ -13,10 +13,8 @@ const liveCells = array => {
 
 const conditionOne = (mainIndex, index) => mainIndex === index ||
   mainIndex === index - 1 || mainIndex === index + 1
-
 const conditionTwo = (el, i, arr) => el === arr[i + 1] - 1
 const conditionThree = (el, i, arr) => el === arr[i - 1] + 1
-
 
 const getTruthV1 = (arr1, arr2, els, arr) => {
   arr1.forEach(mainIndex => {
