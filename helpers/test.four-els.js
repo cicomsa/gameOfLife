@@ -91,11 +91,11 @@ const getData5 = index => {
 
   resultsObject[`${index}1`].result = populate(version5, version2, version1)
   resultsObject[`${index}2`].result = populate(version5, version2, version1)
-  resultsObject[`${index}3`].result = populate(version5, version1, version1)
+  resultsObject[`${index}3`].result = populate(version5, version2, version1)
 
-  resultsObject[`${index}4`].result = populate(version5, version2, version1)
-  resultsObject[`${index}5`].result = populate(version5, version2, version1)
-  resultsObject[`${index}6`].result = populate(version5, version2, version1)
+  resultsObject[`${index}4`].result = populate(version5, version3, version1)
+  resultsObject[`${index}5`].result = populate(version5, version3, version1)
+  resultsObject[`${index}6`].result = populate(version5, version3, version1)
 
   resultsObject[`${index}7`].result = populate(version3, version1, version1)
   resultsObject[`${index}8`].result = populate(version3, version4, version1)
@@ -115,7 +115,7 @@ const getData6 = index => {
   resultsObject[`${index}5`].result = populate(version6, version3, version1)
   resultsObject[`${index}6`].result = populate(version6, version3, version1)
 
-  resultsObject[`${index}7`].result = populate(version6, version1, version1)
+  resultsObject[`${index}7`].result = populate(version6, version4, version1)
   resultsObject[`${index}8`].result = populate(version6, version4, version1)
   resultsObject[`${index}9`].result = populate(version6, version4, version1)
 
@@ -215,13 +215,13 @@ const getData11 = index => {
 const getData12 = index => {
   const resultsObject = populateData6(index, version7)
 
-  resultsObject[`${index}1`].result = populate(version2, version1, version1)
-  resultsObject[`${index}2`].result = populate(version2, version3, version1)
+  resultsObject[`${index}1`].result = populate(version1, version2, version1)
+  resultsObject[`${index}2`].result = populate(version1, version2, version3)
   resultsObject[`${index}3`].result = populate(version1, version1, version1)
 
   resultsObject[`${index}4`].result = populate(version3, version2, version1)
   resultsObject[`${index}5`].result = populate(version3, version7, version3)
-  resultsObject[`${index}6`].result = populate(version3, version1, version1)
+  resultsObject[`${index}6`].result = populate(version3, version4, version1)
 
   resultsObject[`${index}7`].result = populate(version1, version1, version1)
   resultsObject[`${index}8`].result = populate(version1, version4, version3)
@@ -242,7 +242,7 @@ const getData13 = index => {
   resultsObject[`${index}6`].result = populate(version1, version4, version1)
 
   resultsObject[`${index}7`].result = populate(version1, version1, version1)
-  resultsObject[`${index}8`].result = populate(version1, version4, version3)
+  resultsObject[`${index}8`].result = populate(version1, version3, version1)
   resultsObject[`${index}9`].result = populate(version1, version4, version1)
 
   return resultsObject
@@ -253,21 +253,21 @@ const testData = () => {
 
   resultsObject = {
     ...resultsObject,
-    // ...getData1('a'),
-    // ...getData2('b', version5),
-    // ...getData2('c', version6),
-    // ...getData3('d', version5, version2),
-    // ...getData3('e', version6, version4),
-    // ...getData4('f'),
+    ...getData1('a'),
+    ...getData2('b', version5),
+    ...getData2('c', version6),
+    ...getData3('d', version5, version2),
+    ...getData3('e', version6, version4),
+    ...getData4('f'),
     ...getData5('g'),
-    // ...getData6('h'),
-    // ...getData7('i'),
-    // ...getData8('j'),
-    // ...getData9('k'),
-    // ...getData10('l'),
-    // ...getData11('m'),
-    // ...getData12('n'),
-    // ...getData13('o')
+    ...getData6('h'),
+    ...getData7('i'),
+    ...getData8('j'),
+    ...getData9('k'),
+    ...getData10('l'),
+    ...getData11('m'),
+    ...getData12('n'),
+    ...getData13('o')
   }
 
   return resultsObject

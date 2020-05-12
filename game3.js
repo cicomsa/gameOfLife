@@ -137,8 +137,6 @@ const firstRule = initialState => {
     })
   }
 
-  console.log(els)
-
   Object.keys(els).map((key, i) => {
     replaceWith = [...array]
 
@@ -149,8 +147,9 @@ const firstRule = initialState => {
     newState.splice(i, 1, replaceWith)
   })
 
-  console.log(initialState)
-  console.log(newState, truth1, truth2, truth3)
+  // console.log(els)
+  // console.log(initialState)
+  // console.log(newState, truth1, truth2, truth3)
   return newState
 }
 
