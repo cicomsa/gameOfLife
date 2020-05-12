@@ -160,13 +160,13 @@ const testData = () => {
   resultsObject = {
     ...resultsObject,
     // triples + doubles
-    // ...getData1('a'),
-    // ...getData2('b'),
-    // ...getData3('c'),
-    // // triples + singles
-    // ...getData4('d'),
-    // ...getData5('e'),
-    // ...getData6('f'),
+    ...getData1('a'),
+    ...getData2('b'),
+    ...getData3('c'),
+    // triples + singles
+    ...getData4('d'),
+    ...getData5('e'),
+    ...getData6('f'),
     ...getData7('g'),
     // ...getData8('h'),
     // ...getData9('i')
