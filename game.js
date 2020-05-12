@@ -11,118 +11,80 @@ const liveCells = array => {
   return result
 }
 
-const checkTruth = (arr1, arr2, els, arr) => {
-  if (arr1.length) {
-    arr1.forEach(mainIndex => {
-      arr2.map(index => {
-        if (index === mainIndex
-          || index === mainIndex - 1
-          || index === mainIndex + 1
-        ) {
-          els[arr][mainIndex] += 1
-        }
-      })
+const conditionOne = (mainIndex, index) => mainIndex === index ||
+  mainIndex === index - 1 || mainIndex === index + 1
+
+const conditionTwo = (el, i, arr) => el === arr[i + 1] - 1
+const conditionThree = (el, i, arr) => el === arr[i - 1] + 1
+
+
+const getTruthV1 = (arr1, arr2, els, arr) => {
+  arr1.forEach(mainIndex => {
+    arr2.map(index => {
+      if (conditionOne(mainIndex, index)) {
+        els[arr][mainIndex] += 1
+      }
     })
+  })
+}
 
-    if (arr1.length === 3) {
-      arr1.map((el, i) => {
-        if (el === arr1[i + 1] - 1 && el === arr1[i - 1] + 1) {
-          els[arr][el] += 1
-        }
-      })
-    }
-
+const getTruthV2 = (arr1, els, arr) => {
+  if (arr1.length === 3) {
     arr1.map((el, i) => {
-      if (el === arr1[i + 1] - 1 || el === arr1[i - 1] + 1) {
+      if (conditionTwo(el, i, arr1) && conditionThree(el, i, arr1)) {
         els[arr][el] += 1
       }
     })
   }
+
+  arr1.map((el, i) => {
+    if (conditionTwo(el, i, arr1) || conditionThree(el, i, arr1)) {
+      els[arr][el] += 1
+    }
+  })
+}
+
+const checkTruth = (arr1, arr2, els, arr, arr3 = []) => {
+  if (arr1.length) {
+    getTruthV1(arr1, arr2, els, arr)
+
+    if (arr3.length) {
+      getTruthV1(arr1, arr3, els, arr)
+    }
+
+    getTruthV2(arr1, els, arr)
+  }
+}
+
+const generateNewState = (els, replaceWith, newState) => {
+  Object.keys(els).map((key, i) => {
+    const elsItems = els[key]
+    replaceWith = [...array]
+
+    Object.keys(elsItems).map(itemKey => {
+      replaceWith[itemKey] = elsItems[itemKey] === 2 || elsItems[itemKey] === 3 ? 'o' : ''
+    })
+
+    newState.splice(i, 1, replaceWith)
+  })
 }
 
 const firstRule = initialState => {
   let newState = [...initialState]
-  resultsObject = {}
+  resultsObject = { els: {} }
 
   initialState.map((arr, i) => {
     resultsObject[`arr${i + 1}`] = liveCells(arr)
-    resultsObject.els = {
-      arr1: {
-        0: 0,
-        1: 0,
-        2: 0
-      },
-      arr2: {
-        0: 0,
-        1: 0,
-        2: 0
-      },
-      arr3: {
-        0: 0,
-        1: 0,
-        2: 0
-      }
-    }
+    resultsObject.els[`arr${i + 1}`] = { 0: 0, 1: 0, 2: 0 }
   })
 
   const { arr1, arr2, arr3, els } = resultsObject
 
   checkTruth(arr1, arr2, els, 'arr1')
-
-  if (arr2.length) {
-    if (arr1.length) {
-      arr2.forEach(mainIndex => {
-        arr1.map(index => {
-          if (index === mainIndex
-            || index === mainIndex - 1
-            || index === mainIndex + 1
-          ) {
-            els.arr2[mainIndex] += 1
-          }
-        })
-      })
-    }
-
-    if (arr3.length) {
-      arr2.forEach(mainIndex => {
-        arr3.map(index => {
-          if (index === mainIndex
-            || index === mainIndex - 1
-            || index === mainIndex + 1
-          ) {
-            els.arr2[mainIndex] += 1
-          }
-        })
-      })
-    }
-
-    if (arr2.length === 3) {
-      arr2.map((el, i) => {
-        if (el === arr2[i + 1] - 1 && el === arr2[i - 1] + 1) {
-          els.arr2[el] += 1
-        }
-      })
-    }
-
-    arr2.map((el, i) => {
-      if (el === arr2[i + 1] - 1 || el === arr2[i - 1] + 1) {
-        els.arr2[el] += 1
-      }
-    })
-
-  }
-
+  checkTruth(arr2, arr1, els, 'arr2', arr3)
   checkTruth(arr3, arr2, els, 'arr3')
 
-  Object.keys(els).map((key, i) => {
-    replaceWith = [...array]
-
-    Object.keys(els[key]).map(el => {
-      replaceWith[el] = els[key][el] === 2 || els[key][el] === 3 ? 'o' : ''
-    })
-
-    newState.splice(i, 1, replaceWith)
-  })
+  generateNewState(els, replaceWith, newState)
 
   // console.log(els)
   // console.log(initialState)

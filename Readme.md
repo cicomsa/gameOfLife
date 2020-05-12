@@ -10,4 +10,4 @@
 ## Done so far
 
 * If live cell has one or no neighbors, it dies
-* If live cell has two neighbors, it survives
+* If live cell has two or three neighbors, it survives
