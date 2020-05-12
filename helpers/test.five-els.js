@@ -237,27 +237,45 @@ const getData14 = index => {
   return resultsObject
 }
 
+const getData15 = index => {
+  const resultsObject = populateData5(index, version7)
+
+  resultsObject[`${index}1`].result = populate(version1, version2, version5)
+  resultsObject[`${index}2`].result = populate(version1, version1, version5)
+  resultsObject[`${index}3`].result = populate(version1, version4, version3)
+  resultsObject[`${index}4`].result = populate(version1, version2, version3)
+  resultsObject[`${index}5`].result = populate(version1, version1, version6)
+  resultsObject[`${index}6`].result = populate(version1, version4, version6)
+  resultsObject[`${index}7`].result = populate(version1, version2, version1)
+  resultsObject[`${index}8`].result = populate(version1, version1, version1)
+  resultsObject[`${index}9`].result = populate(version1, version4, version1)
+
+  return resultsObject
+}
+
 const testData = () => {
   let resultsObject = {}
 
   resultsObject = {
     ...resultsObject,
     // triples + doubles
-    // ...getData1('a'),
-    // ...getData2('b'),
-    // ...getData3('c'),
-    // // triples + singles
-    // ...getData4('d'),
-    // ...getData5('e'),
-    // ...getData6('f'),
-    // ...getData7('g'),
-    // ...getData8('h'),
-    // ...getData9('i'),
-    // ...getData10('j'),
-    // ...getData11('k'),
-    // ...getData12('l'),
-    // ...getData13('m'),
-    ...getData14('n')
+    ...getData1('a'),
+    ...getData2('b'),
+    ...getData3('c'),
+    // triples + singles
+    ...getData4('d'),
+    ...getData5('e'),
+    ...getData6('f'),
+    // doubles + doubles + singles
+    ...getData7('g'),
+    ...getData8('h'),
+    ...getData9('i'),
+    ...getData10('j'),
+    ...getData11('k'),
+    ...getData12('l'),
+    ...getData13('m'),
+    ...getData14('n'),
+    ...getData15('o')
   }
 
   return resultsObject
