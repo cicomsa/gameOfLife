@@ -54,8 +54,8 @@ test('Four elements data', () => {
 // test five elements
 test('Five elements data', () => {
   Object.keys(testFiveElsData()).map((key, i) => {
-    // console.log(i + 1, 'testFiveElsData()[key].initialState', testFiveElsData()[key].initialState)
-    // console.log(i + 1, 'testFiveElsData()[key].result', testFiveElsData()[key].result)
+    console.log(i + 1, 'testFiveElsData()[key].initialState', testFiveElsData()[key].initialState)
+    console.log(i + 1, 'testFiveElsData()[key].result', testFiveElsData()[key].result)
     expect(rule(testFiveElsData()[key].initialState))
       .toEqual(testFiveElsData()[key].result)
   })
