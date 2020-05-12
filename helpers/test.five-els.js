@@ -172,6 +172,22 @@ const getData10 = index => {
   return resultsObject
 }
 
+const getData11 = index => {
+  const resultsObject = populateData4(index, version6)
+
+  resultsObject[`${index}1`].result = populate(version2, version2, version6)
+  resultsObject[`${index}2`].result = populate(version3, version2, version6)
+  resultsObject[`${index}3`].result = populate(version1, version2, version6)
+  resultsObject[`${index}4`].result = populate(version1, version4, version6)
+  resultsObject[`${index}5`].result = populate(version3, version1, version6)
+  resultsObject[`${index}6`].result = populate(version4, version1, version6)
+  resultsObject[`${index}7`].result = populate(version1, version7, version6)
+  resultsObject[`${index}8`].result = populate(version3, version7, version6)
+  resultsObject[`${index}9`].result = populate(version1, version4, version6)
+
+  return resultsObject
+}
+
 const testData = () => {
   let resultsObject = {}
 
@@ -188,7 +204,8 @@ const testData = () => {
     // ...getData7('g'),
     // ...getData8('h'),
     // ...getData9('i'),
-    ...getData10('j')
+    // ...getData10('j'),
+    ...getData11('k')
   }
 
   return resultsObject
