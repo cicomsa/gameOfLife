@@ -13,7 +13,8 @@ const {
   populateData1,
   populateData2,
   populateData3,
-  populateData4
+  populateData4,
+  populateData5
 } = require('./fives.populate-data')
 
 const getData1 = index => {
@@ -204,6 +205,38 @@ const getData12 = index => {
   return resultsObject
 }
 
+const getData13 = index => {
+  const resultsObject = populateData5(index, version5)
+
+  resultsObject[`${index}1`].result = populate(version5, version1, version5)
+  resultsObject[`${index}2`].result = populate(version5, version1, version5)
+  resultsObject[`${index}3`].result = populate(version3, version4, version3)
+  resultsObject[`${index}4`].result = populate(version5, version2, version3)
+  resultsObject[`${index}5`].result = populate(version5, version1, version6)
+  resultsObject[`${index}6`].result = populate(version3, version4, version6)
+  resultsObject[`${index}7`].result = populate(version5, version2, version1)
+  resultsObject[`${index}8`].result = populate(version5, version1, version1)
+  resultsObject[`${index}9`].result = populate(version3, version4, version1)
+
+  return resultsObject
+}
+
+const getData14 = index => {
+  const resultsObject = populateData5(index, version6)
+
+  resultsObject[`${index}1`].result = populate(version3, version2, version5)
+  resultsObject[`${index}2`].result = populate(version6, version1, version5)
+  resultsObject[`${index}3`].result = populate(version6, version4, version3)
+  resultsObject[`${index}4`].result = populate(version3, version2, version3)
+  resultsObject[`${index}5`].result = populate(version6, version1, version6)
+  resultsObject[`${index}6`].result = populate(version6, version1, version6)
+  resultsObject[`${index}7`].result = populate(version3, version2, version1)
+  resultsObject[`${index}8`].result = populate(version6, version1, version1)
+  resultsObject[`${index}9`].result = populate(version6, version4, version1)
+
+  return resultsObject
+}
+
 const testData = () => {
   let resultsObject = {}
 
@@ -222,7 +255,9 @@ const testData = () => {
     // ...getData9('i'),
     // ...getData10('j'),
     // ...getData11('k'),
-    ...getData12('l')
+    // ...getData12('l'),
+    // ...getData13('m'),
+    ...getData14('n')
   }
 
   return resultsObject

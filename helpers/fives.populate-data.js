@@ -62,7 +62,7 @@ const populateData2 = (index, alternateVersion) => {
   return resultsObject
 }
 
-// five elements - doubles + doubles + singles
+// five elements - doubles + doubles + singles - part 1
 const populateData3 = (index, alternateVersion) => {
   const resultsObject = {}
 
@@ -90,6 +90,7 @@ const populateData3 = (index, alternateVersion) => {
   return resultsObject
 }
 
+// five elements - doubles + doubles + singles - part 2
 const populateData4 = (index, alternateVersion) => {
   const resultsObject = {}
 
@@ -117,9 +118,38 @@ const populateData4 = (index, alternateVersion) => {
   return resultsObject
 }
 
+// five elements - doubles + doubles + singles - part 3
+const populateData5 = (index, alternateVersion) => {
+  const resultsObject = {}
+
+  resultsObject[`${index}1`] = {}
+  resultsObject[`${index}1`].initialState = populate(alternateVersion, version2, version5)
+  resultsObject[`${index}2`] = {}
+  resultsObject[`${index}2`].initialState = populate(alternateVersion, version3, version5)
+  resultsObject[`${index}3`] = {}
+  resultsObject[`${index}3`].initialState = populate(alternateVersion, version4, version5)
+
+  resultsObject[`${index}4`] = {}
+  resultsObject[`${index}4`].initialState = populate(alternateVersion, version2, version6)
+  resultsObject[`${index}5`] = {}
+  resultsObject[`${index}5`].initialState = populate(alternateVersion, version3, version6)
+  resultsObject[`${index}6`] = {}
+  resultsObject[`${index}6`].initialState = populate(alternateVersion, version4, version6)
+
+  resultsObject[`${index}7`] = {}
+  resultsObject[`${index}7`].initialState = populate(alternateVersion, version2, version7)
+  resultsObject[`${index}8`] = {}
+  resultsObject[`${index}8`].initialState = populate(alternateVersion, version3, version7)
+  resultsObject[`${index}9`] = {}
+  resultsObject[`${index}9`].initialState = populate(alternateVersion, version4, version7)
+
+  return resultsObject
+}
+
 module.exports = {
   populateData1,
   populateData2,
   populateData3,
-  populateData4
+  populateData4,
+  populateData5
 }
