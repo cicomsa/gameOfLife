@@ -1,4 +1,4 @@
-const rule = require('./game2')
+const rule = require('./game3')
 const { populate, version1 } = require('./helpers')
 const testOneElData = require('./helpers/test.one-el')
 const testTwoElsData = require('./helpers/test.two-els')
@@ -12,14 +12,14 @@ const testOneEl1Data = {
 }
 
 // test one element only
-// test('One element only data', () => {
-//   expect(rule(testOneEl1Data.initialState)).toEqual(testOneEl1Data.result);
+test('One element only data', () => {
+  expect(rule(testOneEl1Data.initialState)).toEqual(testOneEl1Data.result);
 
-//   Object.keys(testOneElData()).map(key => {
-//     expect(rule(testTwoElsData()[key].initialState))
-//       .toEqual(testTwoElsData()[key].result)
-//   })
-// })
+  Object.keys(testOneElData()).map(key => {
+    expect(rule(testTwoElsData()[key].initialState))
+      .toEqual(testTwoElsData()[key].result)
+  })
+})
 
 // // test two elements only
 // test('Two elements only data', () => {
@@ -38,12 +38,12 @@ const testOneEl1Data = {
 // })
 
 // test four elements
-test('Four elements data', () => {
-  Object.keys(testFourElsData()).map(key => {
-    expect(rule(testFourElsData()[key].initialState))
-      .toEqual(testFourElsData()[key].result)
-  })
-})
+// test('Four elements data', () => {
+//   Object.keys(testFourElsData()).map(key => {
+//     expect(rule(testFourElsData()[key].initialState))
+//       .toEqual(testFourElsData()[key].result)
+//   })
+// })
 
 // test('Main first rule test', () => {
 //   expect(rule(initialState)).toEqual(firstRule)
