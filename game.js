@@ -1,110 +1,156 @@
-const { version1, cells } = require('./helpers')
+const array = ['', '', '']
+let replaceWith = [...array]
 
-const newArray = (condition, newState, index, modifyArray = false) => {
-  const array = [...version1]
+const liveCells = array => {
+  result = array.reduce((result, el, i) => {
+    if (el === 'o')
+      result.push(i)
+    return result
+  }, [])
 
-  if (condition) {
-    if (modifyArray) array[1] = 'o'
-    newState.splice(index, 1, array)
-  }
-}
-
-const addElement = (condition, els, el) => {
-  if (condition) els.push(el)
-}
-
-const getTruth = (getCellsTruth, arr1, arr2, truth) => {
-  if (arr2.length) {
-    getCellsTruth(arr1, arr2, truth)
-  }
-}
-
-const getCellsTruth1 = (arr1, arr2, truth) => {
-  arr1.forEach(mainIndex => {
-    arr2.map(index =>
-      addElement(
-        index === mainIndex
-        || index === mainIndex - 1
-        || index === mainIndex + 1,
-        truth,
-        true
-      )
-    )
-  })
-}
-
-const getCellsTruth2 = (arr1, arr2, truth) => {
-  if (!arr2.length) {
-    const els = []
-
-    arr1.map((el, i) => addElement(arr1[i + 1] === el + 1, els, el))
-    addElement(els[0] === els[1] - 1, truth, true)
-  }
-}
-
-const checkSingles = (arr1, arr2, arr3, truth, index, newState, initialState) => {
-  if (arr1.length === 1) {
-    getTruth(getCellsTruth1, arr1, arr2, truth)
-    getTruth(getCellsTruth1, arr1, arr3, truth)
-
-    newArray(truth.length < 2, newState, index)
-  }
-}
-
-const checkDoubles = (arr1, arr2, arr3, truth, index, newState, initialState) => {
-  if (arr1.length === 2) {
-    if (arr1[0] === arr1[1] - 1) {
-      getTruth(getCellsTruth1, arr1, arr2, truth)
-      getTruth(getCellsTruth1, arr1, arr3, truth)
-    }
-
-    newArray(truth.length === 0, newState, index)
-    newArray(
-      truth.length === 1 && arr1[0] === arr1[1] - 1,
-      newState,
-      index,
-      true
-    )
-  }
-}
-
-const checkTriples = (arr1, arr2, arr3, truth, index, newState, initialState) => {
-  if (arr1.length === 3) {
-    getCellsTruth2(arr1, arr2, truth)
-    getTruth(getCellsTruth2, arr1, arr3, truth)
-
-    newArray(
-      (truth.length === 1 || truth.length === 2)
-      && arr1[0] === arr1[1] - 1,
-      newState,
-      index,
-      true
-    )
-  }
-}
-
-const checkCellsTruth = (arr1, arr2, truth, index, newState, initialState, arr3 = []) => {
-  checkSingles(arr1, arr2, arr3, truth, index, newState, initialState)
-  checkDoubles(arr1, arr2, arr3, truth, index, newState, initialState)
-  checkTriples(arr1, arr2, arr3, truth, index, newState, initialState)
+  return result
 }
 
 const firstRule = initialState => {
   let newState = [...initialState]
-  const resultsObject = {}
+  resultsObject = {}
 
   initialState.map((arr, i) => {
-    resultsObject[`arr${i + 1}`] = cells(arr, 'o')
+    resultsObject[`arr${i + 1}`] = liveCells(arr)
     resultsObject[`truth${i + 1}`] = []
   })
 
   const { arr1, arr2, arr3, truth1, truth2, truth3 } = resultsObject
+  const els = {
+    arr1: {
+      0: 0,
+      1: 0,
+      2: 0
+    },
+    arr2: {
+      0: 0,
+      1: 0,
+      2: 0
+    },
+    arr3: {
+      0: 0,
+      1: 0,
+      2: 0
+    }
+  }
 
-  checkCellsTruth(arr1, arr2, truth1, 0, newState, initialState)
-  checkCellsTruth(arr2, arr1, truth2, 1, newState, initialState, arr3)
-  checkCellsTruth(arr3, arr2, truth3, 2, newState, initialState)
+  if (arr1.length) {
+    arr1.forEach(mainIndex => {
+      arr2.map(index => {
+        if (index === mainIndex
+          || index === mainIndex - 1
+          || index === mainIndex + 1
+        ) {
+          els.arr1[mainIndex] += 1
+        }
+      })
+    })
 
+    if (arr1.length === 3) {
+      arr1.map((el, i) => {
+        if (el === arr1[i + 1] - 1 && el === arr1[i - 1] + 1) {
+          els.arr1[el] += 1
+        }
+      })
+    }
+
+    arr1.map((el, i) => {
+      if (el === arr1[i + 1] - 1 || el === arr1[i - 1] + 1) {
+        els.arr1[el] += 1
+      }
+    })
+  }
+
+  if (arr2.length) {
+    if (arr1.length) {
+      arr2.forEach(mainIndex => {
+        arr1.map(index => {
+          if (index === mainIndex
+            || index === mainIndex - 1
+            || index === mainIndex + 1
+          ) {
+
+            els.arr2[mainIndex] += 1
+          }
+        })
+      })
+    }
+
+    if (arr3.length) {
+      arr2.forEach(mainIndex => {
+        arr3.map(index => {
+          if (index === mainIndex
+            || index === mainIndex - 1
+            || index === mainIndex + 1
+          ) {
+            els.arr2[mainIndex] += 1
+          }
+        })
+      })
+    }
+
+    if (arr2.length === 3) {
+      arr2.map((el, i) => {
+        if (el === arr2[i + 1] - 1 && el === arr2[i - 1] + 1) {
+          els.arr2[el] += 1
+        }
+      })
+    }
+
+    arr2.map((el, i) => {
+      if (el === arr2[i + 1] - 1 || el === arr2[i - 1] + 1) {
+        els.arr2[el] += 1
+      }
+    })
+
+  }
+
+  if (arr3.length) {
+    arr3.forEach(mainIndex => {
+      arr2.map(index => {
+        if (index === mainIndex
+          || index === mainIndex - 1
+          || index === mainIndex + 1
+        ) {
+          els.arr3[mainIndex] += 1
+        }
+      })
+    })
+
+    if (arr3.length === 3) {
+      arr3.map((el, i) => {
+        if (el === arr3[i + 1] - 1 && el === arr3[i - 1] + 1) {
+          els.arr3[el] += 1
+        }
+      })
+    }
+
+    arr3.map((el, i) => {
+      if (el === arr3[i + 1] - 1 || el === arr3[i - 1] + 1) {
+        els.arr3[el] += 1
+      }
+    })
+  }
+
+  Object.keys(els).map((key, i) => {
+    replaceWith = [...array]
+
+    Object.keys(els[key]).map(el => {
+      replaceWith[el] = els[key][el] > 1 ? 'o' : ''
+    })
+
+    newState.splice(i, 1, replaceWith)
+  })
+
+  // console.log(els)
+  // console.log(initialState)
+  // console.log(newState, truth1, truth2, truth3)
   return newState
 }
 
-module.exports = firstRule
+module.exports = firstRule;

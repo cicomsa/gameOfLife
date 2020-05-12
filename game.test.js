@@ -1,4 +1,4 @@
-const rule = require('./game3')
+const rule = require('./game')
 const { populate, version1 } = require('./helpers')
 const testOneElData = require('./helpers/test.one-el')
 const testTwoElsData = require('./helpers/test.two-els')
