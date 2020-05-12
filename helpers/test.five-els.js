@@ -12,7 +12,8 @@ const {
 const {
   populateData1,
   populateData2,
-  populateData3
+  populateData3,
+  populateData4
 } = require('./fives.populate-data')
 
 const getData1 = index => {
@@ -155,6 +156,22 @@ const getData9 = index => {
   return resultsObject
 }
 
+const getData10 = index => {
+  const resultsObject = populateData4(index, version5)
+
+  resultsObject[`${index}1`].result = populate(version2, version1, version5)
+  resultsObject[`${index}2`].result = populate(version3, version1, version5)
+  resultsObject[`${index}3`].result = populate(version1, version2, version5)
+  resultsObject[`${index}4`].result = populate(version1, version4, version5)
+  resultsObject[`${index}5`].result = populate(version3, version4, version5)
+  resultsObject[`${index}6`].result = populate(version4, version4, version5)
+  resultsObject[`${index}7`].result = populate(version1, version2, version5)
+  resultsObject[`${index}8`].result = populate(version3, version7, version5)
+  resultsObject[`${index}9`].result = populate(version1, version7, version5)
+
+  return resultsObject
+}
+
 const testData = () => {
   let resultsObject = {}
 
@@ -170,7 +187,8 @@ const testData = () => {
     // ...getData6('f'),
     // ...getData7('g'),
     // ...getData8('h'),
-    ...getData9('i')
+    // ...getData9('i'),
+    ...getData10('j')
   }
 
   return resultsObject
