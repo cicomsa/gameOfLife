@@ -62,7 +62,38 @@ const populateData2 = (index, alternateVersion) => {
   return resultsObject
 }
 
+// five elements - doubles + doubles + singles
+const populateData3 = (index, alternateVersion) => {
+  const resultsObject = {}
+  // triples top
+  resultsObject[`${index}1`] = {}
+  resultsObject[`${index}1`].initialState = populate(alternateVersion, version5, version2)
+  resultsObject[`${index}2`] = {}
+  resultsObject[`${index}2`].initialState = populate(alternateVersion, version5, version3)
+  resultsObject[`${index}3`] = {}
+  resultsObject[`${index}3`].initialState = populate(alternateVersion, version5, version4)
+
+  // triples middle
+  resultsObject[`${index}4`] = {}
+  resultsObject[`${index}4`].initialState = populate(alternateVersion, version6, version2)
+  resultsObject[`${index}5`] = {}
+  resultsObject[`${index}5`].initialState = populate(alternateVersion, version6, version3)
+  resultsObject[`${index}6`] = {}
+  resultsObject[`${index}6`].initialState = populate(alternateVersion, version6, version4)
+
+  // triples bottom
+  resultsObject[`${index}7`] = {}
+  resultsObject[`${index}7`].initialState = populate(alternateVersion, version7, version2)
+  resultsObject[`${index}8`] = {}
+  resultsObject[`${index}8`].initialState = populate(alternateVersion, version7, version3)
+  resultsObject[`${index}9`] = {}
+  resultsObject[`${index}9`].initialState = populate(alternateVersion, version7, version4)
+
+  return resultsObject
+}
+
 module.exports = {
   populateData1,
-  populateData2
+  populateData2,
+  populateData3
 }
