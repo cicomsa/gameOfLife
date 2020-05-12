@@ -4,6 +4,7 @@ const testOneElData = require('./helpers/test.one-el')
 const testTwoElsData = require('./helpers/test.two-els')
 const testThreeElsData = require('./helpers/test.three-els')
 const testFourElsData = require('./helpers/test.four-els')
+const testFiveElsData = require('./helpers/test.five-els')
 const { initialState, firstRule } = require('./states')
 
 const testOneEl1Data = {
@@ -46,6 +47,17 @@ test('Four elements data', () => {
     // console.log(i + 1, 'testFourElsData()[key].result', testFourElsData()[key].result)
     expect(rule(testFourElsData()[key].initialState))
       .toEqual(testFourElsData()[key].result)
+  })
+})
+
+
+// test five elements
+test('Five elements data', () => {
+  Object.keys(testFiveElsData()).map((key, i) => {
+    // console.log(i + 1, 'testFiveElsData()[key].initialState', testFiveElsData()[key].initialState)
+    // console.log(i + 1, 'testFiveElsData()[key].result', testFiveElsData()[key].result)
+    expect(rule(testFiveElsData()[key].initialState))
+      .toEqual(testFiveElsData()[key].result)
   })
 })
 

@@ -88,7 +88,7 @@ const firstRule = initialState => {
 
   // console.log(els)
   // console.log(initialState)
-  // console.log(newState, truth1, truth2, truth3)
+  // console.log(newState)
   return newState
 }
 
