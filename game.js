@@ -141,7 +141,7 @@ const firstRule = initialState => {
     replaceWith = [...array]
 
     Object.keys(els[key]).map(el => {
-      replaceWith[el] = els[key][el] > 1 ? 'o' : ''
+      replaceWith[el] = els[key][el] === 2 || els[key][el] === 3 ? 'o' : ''
     })
 
     newState.splice(i, 1, replaceWith)
