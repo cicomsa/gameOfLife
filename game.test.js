@@ -62,15 +62,15 @@ const testOneEl1Data = {
 //   })
 // })
 
-// // test six elements
-// test('Six elements data', () => {
-//   Object.keys(testSixElsData()).map((key, i) => {
-//     // console.log(i + 1, 'testSixElsData()[key].initialState', testSixElsData()[key].initialState)
-//     // console.log(i + 1, 'testFivetestSixElsDataElsData()[key].result', testSixElsData()[key].result)
-//     expect(rule(testSixElsData()[key].initialState))
-//       .toEqual(testSixElsData()[key].result)
-//   })
-// })
+// test six elements
+test('Six elements data', () => {
+  Object.keys(testSixElsData()).map((key, i) => {
+    console.log(i + 1, 'testSixElsData()[key].initialState', testSixElsData()[key].initialState)
+    console.log(i + 1, 'testFivetestSixElsDataElsData()[key].result', testSixElsData()[key].result)
+    expect(rule(testSixElsData()[key].initialState))
+      .toEqual(testSixElsData()[key].result)
+  })
+})
 
 test('Main first rule test', () => {
   expect(rule(initialState)).toEqual(firstRule)

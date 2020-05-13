@@ -75,37 +75,37 @@ const populateData2 = (index, alternateVersion) => {
   return resultsObject
 }
 
-// // six elements - doubles + doubles + singles - part 1
-// const populateData3 = (index, alternateVersion) => {
-//   const resultsObject = {}
+// six elements - doubles only
+const populateData3 = (index, alternateVersion) => {
+  const resultsObject = {}
 
-//   resultsObject[`${index}1`] = {}
-//   resultsObject[`${index}1`].initialState = populate(alternateVersion, version5, version2)
-//   resultsObject[`${index}2`] = {}
-//   resultsObject[`${index}2`].initialState = populate(alternateVersion, version5, version3)
-//   resultsObject[`${index}3`] = {}
-//   resultsObject[`${index}3`].initialState = populate(alternateVersion, version5, version4)
+  resultsObject[`${index}1`] = {}
+  resultsObject[`${index}1`].initialState = populate(alternateVersion, version5, version5)
+  resultsObject[`${index}2`] = {}
+  resultsObject[`${index}2`].initialState = populate(alternateVersion, version5, version6)
+  resultsObject[`${index}3`] = {}
+  resultsObject[`${index}3`].initialState = populate(alternateVersion, version5, version7)
 
-//   resultsObject[`${index}4`] = {}
-//   resultsObject[`${index}4`].initialState = populate(alternateVersion, version6, version2)
-//   resultsObject[`${index}5`] = {}
-//   resultsObject[`${index}5`].initialState = populate(alternateVersion, version6, version3)
-//   resultsObject[`${index}6`] = {}
-//   resultsObject[`${index}6`].initialState = populate(alternateVersion, version6, version4)
+  resultsObject[`${index}4`] = {}
+  resultsObject[`${index}4`].initialState = populate(alternateVersion, version6, version5)
+  resultsObject[`${index}5`] = {}
+  resultsObject[`${index}5`].initialState = populate(alternateVersion, version6, version6)
+  resultsObject[`${index}6`] = {}
+  resultsObject[`${index}6`].initialState = populate(alternateVersion, version6, version7)
 
-//   resultsObject[`${index}7`] = {}
-//   resultsObject[`${index}7`].initialState = populate(alternateVersion, version7, version2)
-//   resultsObject[`${index}8`] = {}
-//   resultsObject[`${index}8`].initialState = populate(alternateVersion, version7, version3)
-//   resultsObject[`${index}9`] = {}
-//   resultsObject[`${index}9`].initialState = populate(alternateVersion, version7, version4)
+  resultsObject[`${index}7`] = {}
+  resultsObject[`${index}7`].initialState = populate(alternateVersion, version7, version5)
+  resultsObject[`${index}8`] = {}
+  resultsObject[`${index}8`].initialState = populate(alternateVersion, version7, version6)
+  resultsObject[`${index}9`] = {}
+  resultsObject[`${index}9`].initialState = populate(alternateVersion, version7, version7)
 
-//   return resultsObject
-// }
+  return resultsObject
+}
 
 
 module.exports = {
   populateData1,
   populateData2,
-  // populateData3
+  populateData3
 }
