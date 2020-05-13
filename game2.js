@@ -11,33 +11,30 @@ const liveCells = array => {
   return result
 }
 
+const deadCells = array => {
+  result = array.reduce((result, el, i) => {
+    if (el === '')
+      result.push(i)
+    return result
+  }, [])
+
+  return result
+}
+
 const firstRule = initialState => {
   let newState = [...initialState]
   resultsObject = {}
+  resultsObject = { els: {} }
 
   initialState.map((arr, i) => {
     resultsObject[`arr${i + 1}`] = liveCells(arr)
-    resultsObject[`truth${i + 1}`] = []
+    resultsObject[`dArr${i + 1}`] = deadCells(arr)
+    resultsObject.els[`arr${i + 1}`] = { 0: 0, 1: 0, 2: 0 }
   })
 
-  const { arr1, arr2, arr3, truth1, truth2, truth3 } = resultsObject
-  const els = {
-    arr1: {
-      0: 0,
-      1: 0,
-      2: 0
-    },
-    arr2: {
-      0: 0,
-      1: 0,
-      2: 0
-    },
-    arr3: {
-      0: 0,
-      1: 0,
-      2: 0
-    }
-  }
+  const { arr1, arr2, arr3, els, dArr1, dArr2, dArr3 } = resultsObject
+
+  console.log({ arr1 }, { dArr1 })
 
   if (arr1.length) {
     arr1.forEach(mainIndex => {
