@@ -94,6 +94,8 @@ const populateData4 = index => {
 
   resultsObject[`${index}1`] = {}
   resultsObject[`${index}1`].initialState = populate(version8, version8, version8)
+
+  return resultsObject
 }
 
 module.exports = {
