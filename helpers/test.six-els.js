@@ -168,7 +168,7 @@ const testData = () => {
     // doubles
     ...getData5('e'),
     ...getData6('f'),
-    ...getData7('g'),
+    ...getData7('g')
   }
 
   return resultsObject
