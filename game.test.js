@@ -19,7 +19,8 @@ test('One element only data', () => {
   expect(rule(testOneEl1Data.initialState)).toEqual(testOneEl1Data.result);
 
   Object.keys(testOneElData()).map(key => {
-    // console.log(i + 1, 'testOneElData()[key].result', testOneElData()[key].result)
+    // console.log(key, 'testOneElData()[key].initialState', testOneElData()[key].initialState)
+    // console.log(key, 'testOneElData()[key].result', testOneElData()[key].result)
     expect(rule(testTwoElsData()[key].initialState))
       .toEqual(testTwoElsData()[key].result)
   })
@@ -28,7 +29,8 @@ test('One element only data', () => {
 // test two elements only
 test('Two elements only data', () => {
   Object.keys(testTwoElsData()).map(key => {
-    // console.log(i + 1, 'testTwoElsData()[key].result', testTwoElsData()[key].result)
+    // console.log(key, 'testTwoElsData()[key].initialState', testTwoElsData()[key].initialState)
+    // console.log(key, 'testTwoElsData()[key].result', testTwoElsData()[key].result)
     expect(rule(testTwoElsData()[key].initialState))
       .toEqual(testTwoElsData()[key].result)
   })
@@ -37,7 +39,8 @@ test('Two elements only data', () => {
 // test three elements
 test('Three elements data', () => {
   Object.keys(testThreeElsData()).map(key => {
-    // console.log(i + 1, 'testThreeElsData()[key].result', testThreeElsData()[key].result)
+    // console.log(key, 'testThreeElsData()[key].initialState', testThreeElsData()[key].initialState)
+    // console.log(key, 'testThreeElsData()[key].result', testThreeElsData()[key].result)
     expect(rule(testThreeElsData()[key].initialState))
       .toEqual(testThreeElsData()[key].result)
   })
@@ -45,8 +48,9 @@ test('Three elements data', () => {
 
 // test four elements
 test('Four elements data', () => {
-  Object.keys(testFourElsData()).map((key, i) => {
-    // console.log(i + 1, 'testFourElsData()[key].result', testFourElsData()[key].result)
+  Object.keys(testFourElsData()).map(key => {
+    // console.log(key, 'testFourElsData()[key].initialState', testFourElsData()[key].initialState)
+    // console.log(key, 'testFourElsData()[key].result', testFourElsData()[key].result)
     expect(rule(testFourElsData()[key].initialState))
       .toEqual(testFourElsData()[key].result)
   })
@@ -55,9 +59,9 @@ test('Four elements data', () => {
 
 // test five elements
 test('Five elements data', () => {
-  Object.keys(testFiveElsData()).map((key, i) => {
-    // console.log(i + 1, 'testFiveElsData()[key].initialState', testFiveElsData()[key].initialState)
-    // console.log(i + 1, 'testFiveElsData()[key].result', testFiveElsData()[key].result)
+  Object.keys(testFiveElsData()).map(key => {
+    // console.log(key, 'testFiveElsData()[key].initialState', testFiveElsData()[key].initialState)
+    // console.log(key, 'testFiveElsData()[key].result', testFiveElsData()[key].result)
     expect(rule(testFiveElsData()[key].initialState))
       .toEqual(testFiveElsData()[key].result)
   })
@@ -65,9 +69,9 @@ test('Five elements data', () => {
 
 // test six elements
 test('Six elements data', () => {
-  Object.keys(testSixElsData()).map((key, i) => {
-    // console.log(i + 1, 'testSixElsData()[key].initialState', testSixElsData()[key].initialState)
-    // console.log(i + 1, 'testFivetestSixElsDataElsData()[key].result', testSixElsData()[key].result)
+  Object.keys(testSixElsData()).map(key => {
+    // console.log(key, 'testSixElsData()[key].initialState', testSixElsData()[key].initialState)
+    // console.log(key, 'testFivetestSixElsDataElsData()[key].result', testSixElsData()[key].result)
     expect(rule(testSixElsData()[key].initialState))
       .toEqual(testSixElsData()[key].result)
   })
@@ -75,9 +79,9 @@ test('Six elements data', () => {
 
 // test seven to nine elements
 test('Seven to nine elements data', () => {
-  Object.keys(testSevenUpElsData()).map((key, i) => {
-    // console.log(i + 1, 'testSevenUpElsData()[key].initialState', testSevenUpElsData()[key].initialState)
-    // console.log(i + 1, 'testSevenUpElsData()[key].result', testSevenUpElsData()[key].result)
+  Object.keys(testSevenUpElsData()).map(key => {
+    // console.log(key, 'testSevenUpElsData()[key].initialState', testSevenUpElsData()[key].initialState)
+    // console.log(key, 'testSevenUpElsData()[key].result', testSevenUpElsData()[key].result)
     expect(rule(testSevenUpElsData()[key].initialState))
       .toEqual(testSevenUpElsData()[key].result)
   })
