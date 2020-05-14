@@ -14,7 +14,7 @@ const testOneEl1Data = {
   result: populate(version1, version1, version1)
 }
 
-// // test one element only
+// test one element only
 test('One element only data', () => {
   expect(rule(testOneEl1Data.initialState)).toEqual(testOneEl1Data.result);
 
