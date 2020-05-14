@@ -6,8 +6,8 @@ const {
   version4,
   version5,
   version6
-} = require('./index')
-const { populateData2, populateData3 } = require('./populate-data')
+} = require('../helpers/index')
+const { populateData2, populateData3 } = require('../helpers/populate-data')
 
 const getData1 = (index, alteredVersion) => {
   const resultsObject = populateData2(index, alteredVersion)

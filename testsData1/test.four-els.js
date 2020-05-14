@@ -8,7 +8,7 @@ const {
   version6,
   version7,
   version8
-} = require('./index')
+} = require('../helpers/index')
 const {
   populateData1,
   populateData2,
@@ -17,7 +17,7 @@ const {
   populateData5,
   populateData6,
   populateData7,
-} = require('./fours.populate-data')
+} = require('../helpers/fours.populate-data')
 
 const getData1 = index => {
   const resultsObject = populateData1(index)

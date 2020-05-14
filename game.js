@@ -78,7 +78,7 @@ const generateNewState = (els, replaceWith, newState, liveCells = true) => {
   })
 }
 
-const firstRule = initialState => {
+const firstRule = (initialState, withDeadCells = false) => {
   let newState = [...initialState]
   resultsObject = { els: {}, dEls: {} }
 
@@ -96,7 +96,9 @@ const firstRule = initialState => {
   checkTruth(arr3, arr2, dArr3, els, dEls, 'arr3', 'dArr3')
 
   generateNewState(els, replaceWith, newState) // live cells logic only
-  // generateNewState(dEls, replaceWith, newState, false) // dead cells logic only
+  if (withDeadCells) {
+    generateNewState(dEls, replaceWith, newState, false) // dead cells logic only
+  }
 
   // console.log({ els }, { dEls })
   // console.log(initialState)
