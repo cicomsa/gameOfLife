@@ -95,8 +95,8 @@ const firstRule = initialState => {
   checkTruth(arr2, arr1, dArr2, els, dEls, 'arr2', 'dArr2', arr3)
   checkTruth(arr3, arr2, dArr3, els, dEls, 'arr3', 'dArr3')
 
-  generateNewState(els, replaceWith, newState)
-  // generateNewState(dEls, replaceWith, newState, false)
+  generateNewState(els, replaceWith, newState) // live cells logic only
+  // generateNewState(dEls, replaceWith, newState, false) // dead cells logic only
 
   // console.log({ els }, { dEls })
   // console.log(initialState)
