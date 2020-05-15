@@ -16,7 +16,7 @@ const conditionTwo = (el, i, arr) => el === arr[i + 1] - 1
 const conditionThree = (el, i, arr) => el === arr[i - 1] + 1
 
 const getTruthV1 = (arr1, arr2, els, arr) => {
-  arr1.forEach(mainIndex => {
+  arr1.map(mainIndex => {
     arr2.map(index => {
       if (conditionOne(mainIndex, index)) {
         els[arr][mainIndex] += 1
@@ -102,7 +102,7 @@ const firstRule = (initialState, withDeadCells = false) => {
 
   // console.log({ els }, { dEls })
   // console.log(initialState)
-  // console.log(newState)
+  console.log(newState)
   return newState
 }
 

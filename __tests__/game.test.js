@@ -1,13 +1,13 @@
-const rule = require('./game')
-const { populate, version1 } = require('./helpers')
-const testOneElData = require('./testsData1/test.one-el')
-const testTwoElsData = require('./testsData1/test.two-els')
-const testThreeElsData = require('./testsData1/test.three-els')
-const testFourElsData = require('./testsData1/test.four-els')
-const testFiveElsData = require('./testsData1/test.five-els')
-const testSixElsData = require('./testsData1/test.six-els')
-const testSevenUpElsData = require('./testsData1/test.seven-up-els')
-const { initialState, firstRule } = require('./states')
+const rule = require('../game')
+const { populate, version1 } = require('../helpers')
+const testOneElData = require('../testsData1/test.one-el')
+const testTwoElsData = require('../testsData1/test.two-els')
+const testThreeElsData = require('../testsData1/test.three-els')
+const testFourElsData = require('../testsData1/test.four-els')
+const testFiveElsData = require('../testsData1/test.five-els')
+const testSixElsData = require('../testsData1/test.six-els')
+const testSevenUpElsData = require('../testsData1/test.seven-up-els')
+const { initialState, firstRule } = require('../states')
 
 const testOneEl1Data = {
   initialState: populate(version1, version1, version1),

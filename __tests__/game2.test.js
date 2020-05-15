@@ -1,13 +1,13 @@
-const rule = require('./game')
-const { populate, version1 } = require('./helpers')
-const testOneElData = require('./testsData2/test.one-el')
-const testTwoElsData = require('./testsData2/test.two-els')
-const testThreeElsData = require('./testsData2/test.three-els')
-const testFourElsData = require('./testsData2/test.four-els')
-const testFiveElsData = require('./testsData2/test.five-els')
-const testSixElsData = require('./testsData2/test.six-els')
-const testSevenUpElsData = require('./testsData2/test.seven-up-els')
-const { initialState, firstRule } = require('./states')
+const rule = require('../game')
+const { populate, version1 } = require('../helpers')
+const testOneElData = require('../testsData2/test.one-el')
+const testTwoElsData = require('../testsData2/test.two-els')
+const testThreeElsData = require('../testsData2/test.three-els')
+const testFourElsData = require('../testsData2/test.four-els')
+const testFiveElsData = require('../testsData2/test.five-els')
+const testSixElsData = require('../testsData2/test.six-els')
+const testSevenUpElsData = require('../testsData2/test.seven-up-els')
+const { initialState, firstRule } = require('../states')
 
 const testOneEl1Data = {
   initialState: populate(version1, version1, version1),
@@ -37,24 +37,24 @@ const testOneEl1Data = {
 // })
 
 // test three elements
-test('Three elements data', () => {
-  Object.keys(testThreeElsData()).map(key => {
-    console.log(key, 'testThreeElsData()[key].initialState', testThreeElsData()[key].initialState)
-    console.log(key, 'testThreeElsData()[key].result', testThreeElsData()[key].result)
-    expect(rule(testThreeElsData()[key].initialState, true))
-      .toEqual(testThreeElsData()[key].result)
-  })
-})
-
-// test four elements
-// test('Four elements data', () => {
-//   Object.keys(testFourElsData()).map(key => {
-//     // console.log(key, 'testFourElsData()[key].initialState', testFourElsData()[key].initialState)
-//     // console.log(key, 'testFourElsData()[key].result', testFourElsData()[key].result)
-//     expect(rule(testFourElsData()[key].initialState, true))
-//       .toEqual(testFourElsData()[key].result)
+// test('Three elements data', () => {
+//   Object.keys(testThreeElsData()).map(key => {
+//     // console.log(key, 'testThreeElsData()[key].initialState', testThreeElsData()[key].initialState)
+//     // console.log(key, 'testThreeElsData()[key].result', testThreeElsData()[key].result)
+//     expect(rule(testThreeElsData()[key].initialState, true))
+//       .toEqual(testThreeElsData()[key].result)
 //   })
 // })
+
+// test four elements
+test('Four elements data', () => {
+  Object.keys(testFourElsData()).map(key => {
+    console.log(key, 'testFourElsData()[key].initialState', testFourElsData()[key].initialState)
+    console.log(key, 'testFourElsData()[key].result', testFourElsData()[key].result)
+    expect(rule(testFourElsData()[key].initialState, true))
+      .toEqual(testFourElsData()[key].result)
+  })
+})
 
 
 // // test five elements
